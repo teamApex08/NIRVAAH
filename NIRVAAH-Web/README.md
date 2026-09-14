@@ -13,6 +13,14 @@ Tailwind CSS is configured through `@tailwindcss/vite`.
 
 All NIRVAAH pages should follow `docs/frontend-guidelines.md`.
 
+## Architecture
+
+The frontend is organized like the BrowzeSpace frontend: route shell in
+`src/app`, reusable components in `src/components`, module-owned pages in
+`src/modules`, hooks in `src/hooks`, and API/config utilities in `src/lib`.
+
+See `docs/frontend-architecture.md`.
+
 ## Commands
 
 ```bash
