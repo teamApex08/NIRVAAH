@@ -1,0 +1,316 @@
+import {
+  AlertTriangle,
+  BellRing,
+  CheckCircle2,
+  ClipboardCheck,
+  Database,
+  FileText,
+  Gauge,
+  GitCompareArrows,
+  LineChart,
+  ShieldAlert,
+  TimerReset,
+  TrendingUp,
+} from "lucide-react";
+
+// Dummy data for the Early Warnings page.
+// When APIs are ready, replace these arrays with warning, analytics and
+// assistant payloads returned from the backend early-warning service.
+
+// Small source cards explain where the warning signals came from.
+export const warningSourceCards = [
+  {
+    icon: Database,
+    label: "Portfolio Source",
+    value: "PAIMANA Flash Report - July 2026",
+    note: "Official reporting data from line ministries.",
+  },
+  {
+    icon: ShieldAlert,
+    label: "Warning Engine",
+    value: "NIRVAAH Risk Engine",
+    note: "Prototype signals generated from analysed trajectories.",
+  },
+  {
+    icon: Gauge,
+    label: "Projects Analysed",
+    value: "42",
+    note: "Current prototype portfolio.",
+  },
+  {
+    icon: TimerReset,
+    label: "Data Available Through",
+    value: "21 Aug 2026",
+    note: "Latest reporting snapshot.",
+  },
+];
+
+// KPI cards summarize the warning queue at the top of the page.
+export const warningKpis = [
+  {
+    icon: BellRing,
+    value: "76",
+    label: "Total Active Warnings",
+    note: "Analysed projects only",
+    tone: "red",
+  },
+  {
+    icon: AlertTriangle,
+    value: "12",
+    label: "Critical Warnings",
+    note: "Need immediate review",
+    tone: "red",
+  },
+  {
+    icon: TrendingUp,
+    value: "18",
+    label: "New This Cycle",
+    note: "July reporting month",
+    tone: "orange",
+  },
+  {
+    icon: ClipboardCheck,
+    value: "20",
+    label: "Acknowledged",
+    note: "Officer action started",
+    tone: "blue",
+  },
+  {
+    icon: CheckCircle2,
+    value: "44",
+    label: "Resolved / Monitoring",
+    note: "Under follow-up watch",
+    tone: "green",
+  },
+];
+
+// Form fields in the filter bar. Components render text input or select from this data.
+export const warningFilters = [
+  { label: "Ministry", options: ["All Ministries", "Railways", "Jal Shakti", "Housing & Urban Affairs", "Power"] },
+  { label: "Sector", options: ["All Sectors", "Transport", "Water Resources", "Energy", "Urban Development"] },
+  { label: "State", options: ["All States", "Uttar Pradesh", "Bihar", "Maharashtra", "Tamil Nadu", "Karnataka"] },
+  { label: "Warning Severity", options: ["All Severities", "Critical", "High", "Moderate", "Low"] },
+  { label: "Warning Type", options: ["All Types", "Progress Stagnation", "Cost Escalation", "Schedule Slippage"] },
+  { label: "Status", options: ["All Statuses", "New", "In Review", "Acknowledged", "Monitoring"] },
+  { label: "Confidence", options: ["All", "High", "Medium", "Low"] },
+];
+
+// Warning rows shown in the queue. The first warning is selected in the detail panel.
+export const warningRows = [
+  {
+    id: "W-2026-001",
+    project: "Eastern Freight Corridor",
+    projectId: "PRJ-2025-014",
+    ministry: "Railways",
+    state: "Uttar Pradesh",
+    severity: "Critical",
+    type: "Progress Stagnation",
+    evidence: "Physical progress stagnant for 2 months",
+    firstDetected: "12 May 2026",
+    latestChange: "21 Jul 2026",
+    confidence: "High",
+    status: "New",
+    action: "Review",
+  },
+  {
+    id: "W-2026-002",
+    project: "River Basin Project",
+    projectId: "PRJ-2023-077",
+    ministry: "Jal Shakti",
+    state: "Bihar",
+    severity: "High",
+    type: "Cost Escalation",
+    evidence: "Cost 32% above sector median",
+    firstDetected: "18 Apr 2026",
+    latestChange: "20 Jul 2026",
+    confidence: "Medium",
+    status: "In Review",
+    action: "Investigate",
+  },
+  {
+    id: "W-2026-003",
+    project: "Metro Rail Phase II",
+    projectId: "PRJ-2024-201",
+    ministry: "Housing & Urban Affairs",
+    state: "Maharashtra",
+    severity: "High",
+    type: "Schedule Slippage",
+    evidence: "Revised completion date plus 4 months",
+    firstDetected: "02 Mar 2026",
+    latestChange: "19 Jul 2026",
+    confidence: "High",
+    status: "New",
+    action: "Review",
+  },
+  {
+    id: "W-2026-004",
+    project: "Coastal Protection Works",
+    projectId: "PRJ-2022-333",
+    ministry: "Earth Sciences",
+    state: "Tamil Nadu",
+    severity: "High",
+    type: "Physical-Financial Gap",
+    evidence: "Slow progress with high time risk",
+    firstDetected: "11 Apr 2026",
+    latestChange: "18 Jul 2026",
+    confidence: "Medium",
+    status: "Acknowledged",
+    action: "Monitor",
+  },
+  {
+    id: "W-2026-005",
+    project: "National Highway Project",
+    projectId: "PRJ-2024-118",
+    ministry: "Road Transport & Highways",
+    state: "Karnataka",
+    severity: "Moderate",
+    type: "Completion Date Revision",
+    evidence: "Completion date revised twice",
+    firstDetected: "20 Mar 2026",
+    latestChange: "18 Jul 2026",
+    confidence: "Medium",
+    status: "In Review",
+    action: "Investigate",
+  },
+  {
+    id: "W-2026-006",
+    project: "Renewable Energy Park",
+    projectId: "PRJ-2023-089",
+    ministry: "New & Renewable Energy",
+    state: "Rajasthan",
+    severity: "Moderate",
+    type: "Slow Progress Velocity",
+    evidence: "Progress below planned trajectory",
+    firstDetected: "14 Apr 2026",
+    latestChange: "17 Jul 2026",
+    confidence: "Medium",
+    status: "New",
+    action: "Review",
+  },
+  {
+    id: "W-2026-007",
+    project: "Urban Transport Project",
+    projectId: "PRJ-2025-301",
+    ministry: "Housing & Urban Affairs",
+    state: "Madhya Pradesh",
+    severity: "High",
+    type: "Repeated Cost Revision",
+    evidence: "Multiple cost revisions",
+    firstDetected: "10 Feb 2026",
+    latestChange: "16 Jul 2026",
+    confidence: "High",
+    status: "In Review",
+    action: "Investigate",
+  },
+  {
+    id: "W-2026-008",
+    project: "Irrigation Modernisation",
+    projectId: "PRJ-2023-190",
+    ministry: "Agriculture",
+    state: "Odisha",
+    severity: "Moderate",
+    type: "Progress Stagnation",
+    evidence: "Physical progress stagnant for 2 months",
+    firstDetected: "28 Apr 2026",
+    latestChange: "15 Jul 2026",
+    confidence: "Medium",
+    status: "Monitoring",
+    action: "View Project",
+  },
+  {
+    id: "W-2026-009",
+    project: "Power Transmission Line",
+    projectId: "PRJ-2024-066",
+    ministry: "Power",
+    state: "Chhattisgarh",
+    severity: "Low",
+    type: "Physical-Financial Gap",
+    evidence: "Expenditure slower than planned",
+    firstDetected: "12 Jun 2026",
+    latestChange: "14 Jul 2026",
+    confidence: "Low",
+    status: "Monitoring",
+    action: "View Project",
+  },
+  {
+    id: "W-2026-010",
+    project: "Port Connectivity Project",
+    projectId: "PRJ-2022-501",
+    ministry: "Ports, Shipping & Waterways",
+    state: "Gujarat",
+    severity: "High",
+    type: "Repeated Completion Date Revision",
+    evidence: "Completion date revised for third time",
+    firstDetected: "05 Feb 2026",
+    latestChange: "12 Jul 2026",
+    confidence: "Medium",
+    status: "New",
+    action: "Review",
+  },
+];
+
+export const selectedWarning = {
+  ...warningRows[0],
+  currentStatus: "New - Requires Review",
+  keyReason: "Physical progress stagnant for 2 months, with expenditure significantly lower than planned trajectory.",
+  evidenceFromData: [
+    "Physical progress: 18 percent with no change in last 2 months",
+    "Planned progress by July 2026: 32 percent",
+    "Expenditure: 28 percent of planned spend",
+    "Project is 6 months behind original schedule",
+  ],
+  suggestedStep: "Review latest progress submissions and assess bottlenecks. Consider inter-ministerial review.",
+  history: [
+    { label: "First Detected", date: "12 May 2026", note: "Initial warning generated" },
+    { label: "Escalated to High", date: "18 Jun 2026", note: "Continued stagnation in progress" },
+    { label: "Escalated to Critical", date: "21 Jul 2026", note: "No progress for 2 months" },
+    { label: "Pending Review", date: "Current Status", note: "Officer action required" },
+  ],
+};
+
+// Analytics below the queue keep the reference design useful without overcrowding the main table.
+export const severityDistribution = [
+  { label: "Critical", count: 12, percent: "15.8%", color: "bg-red-600" },
+  { label: "High", count: 24, percent: "31.6%", color: "bg-orange-500" },
+  { label: "Moderate", count: 26, percent: "34.2%", color: "bg-yellow-400" },
+  { label: "Low", count: 14, percent: "18.4%", color: "bg-emerald-500" },
+];
+
+export const warningTypeBreakdown = [
+  { label: "Progress Stagnation", count: 18, width: 100, color: "bg-red-500" },
+  { label: "Physical-Financial Gap", count: 14, width: 78, color: "bg-orange-400" },
+  { label: "Cost Escalation", count: 11, width: 61, color: "bg-amber-400" },
+  { label: "Schedule Slippage", count: 10, width: 56, color: "bg-blue-400" },
+  { label: "Completion Date Revision", count: 8, width: 44, color: "bg-sky-400" },
+  { label: "Repeated Cost Revision", count: 7, width: 39, color: "bg-blue-300" },
+];
+
+export const monthlyWarningTrend = [
+  { month: "Feb", total: 38, newWarnings: 8, critical: 3 },
+  { month: "Mar", total: 43, newWarnings: 11, critical: 5 },
+  { month: "Apr", total: 51, newWarnings: 14, critical: 7 },
+  { month: "May", total: 59, newWarnings: 18, critical: 9 },
+  { month: "Jun", total: 66, newWarnings: 20, critical: 10 },
+  { month: "Jul", total: 76, newWarnings: 18, critical: 12 },
+];
+
+export const cycleChanges = [
+  { icon: TrendingUp, text: "6 projects moved to Critical from High or Moderate", tone: "red" },
+  { icon: BellRing, text: "8 new warnings entered the July cycle", tone: "orange" },
+  { icon: Gauge, text: "Progress stagnation is the most common warning type", tone: "blue" },
+  { icon: CheckCircle2, text: "44 warnings are resolved or under monitoring", tone: "green" },
+];
+
+export const quickActions = [
+  { icon: FileText, title: "View All Projects", description: "Go to projects list", tone: "blue" },
+  { icon: BellRing, title: "Export Warning Report", description: "Download analysed warnings", tone: "red" },
+  { icon: LineChart, title: "Create Monthly Risk Brief", description: "Generate summary for review", tone: "purple" },
+  { icon: GitCompareArrows, title: "Compare Warning Trends", description: "Ministry, sector or state view", tone: "green" },
+];
+
+export const warningAssistantPrompts = [
+  "Which warnings are new this cycle?",
+  "Show all critical warnings in Railways",
+  "Why did this project move to high severity?",
+  "Compare warning trends across ministries",
+];
