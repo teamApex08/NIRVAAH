@@ -1,6 +1,7 @@
 import React from "react";
 import { cx } from "../../lib/formatters.js";
 
+// Button variants collect repeated color/tone choices in one place.
 const variants = {
   primary:
     "border-[#052b63] bg-[#052b63] text-white shadow-[0_12px_26px_rgba(5,43,99,0.16)] hover:bg-[#031d43]",
@@ -9,6 +10,12 @@ const variants = {
   inverse: "border-white bg-white text-[#052b63] shadow-[0_12px_26px_rgba(0,0,0,0.18)] hover:bg-[#e9f3fd]",
 };
 
+/**
+ * Shared button/link primitive.
+ *
+ * Use as="a" when the control should navigate, otherwise it renders as a
+ * normal button. Keeping both paths here makes CTAs visually consistent.
+ */
 export function Button({ as: Component = "button", className, variant = "primary", children, ...props }) {
   return (
     <Component

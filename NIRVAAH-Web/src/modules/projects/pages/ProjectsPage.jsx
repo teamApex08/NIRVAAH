@@ -4,6 +4,12 @@ import { DashboardLayout } from "../../../components/layout/DashboardLayout.jsx"
 import { Button } from "../../../components/ui/Button.jsx";
 import { Card, CardBody } from "../../../components/ui/Card.jsx";
 
+/**
+ * Placeholder route for /projects.
+ *
+ * It keeps navigation links working while the full project list/detail module
+ * is still being designed.
+ */
 function ProjectsPage() {
   return (
     <DashboardLayout activePath="/projects">

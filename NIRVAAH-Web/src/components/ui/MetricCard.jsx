@@ -1,6 +1,7 @@
 import React from "react";
 import { cx } from "../../lib/formatters.js";
 
+// Tone classes decide the background and text color for each metric icon.
 const toneClasses = {
   blue: "bg-blue-50 text-blue-700",
   green: "bg-emerald-50 text-emerald-700",
@@ -9,6 +10,12 @@ const toneClasses = {
   purple: "bg-violet-50 text-violet-700",
 };
 
+/**
+ * KPI card used for dashboard summary numbers.
+ *
+ * icon is a lucide-react component, label explains the metric, value is the
+ * large number, and note gives supporting context.
+ */
 export function MetricCard({ icon: Icon, label, value, note, tone = "blue" }) {
   return (
     <article className="rounded-lg border border-[#d5e1ec] bg-white p-4 shadow-sm">

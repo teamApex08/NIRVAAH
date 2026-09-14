@@ -3,6 +3,8 @@ import CommandCentrePage from "../modules/command-centre/pages/CommandCentrePage
 import LandingPage from "../modules/landing/pages/LandingPage.jsx";
 import ProjectsPage from "../modules/projects/pages/ProjectsPage.jsx";
 
+// Small route registry for the Vite prototype. Each route owns its URL path,
+// browser title, and page component in one easy-to-scan place.
 export const routes = [
   {
     path: "/",
@@ -21,6 +23,12 @@ export const routes = [
   },
 ];
 
+/**
+ * Finds the route for a pathname.
+ *
+ * Unknown paths currently fall back to the landing page so demo links never
+ * crash the app while more pages are still being built.
+ */
 export function resolveRoute(pathname) {
   return routes.find((route) => route.path === pathname) ?? routes[0];
 }

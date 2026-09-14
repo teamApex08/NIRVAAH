@@ -2,6 +2,12 @@ import React from "react";
 import { Card, CardBody, CardHeader } from "../../../components/ui/Card.jsx";
 import { ministryRisk } from "../data/commandCentreData.js";
 
+/**
+ * Horizontal bar list showing which ministries carry the most risk.
+ *
+ * Each bar width is a percentage value from the data file. That keeps the
+ * component presentational and easy to replace with real API values later.
+ */
 export function RiskByMinistry() {
   return (
     <Card>

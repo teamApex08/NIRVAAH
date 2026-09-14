@@ -3,6 +3,7 @@ import { Card } from "../../../components/ui/Card.jsx";
 import { cx } from "../../../lib/formatters.js";
 import { portfolioChanges } from "../data/commandCentreData.js";
 
+// Color choices for positive, warning, and neutral movement cards.
 const toneStyles = {
   red: "bg-red-50 text-red-700",
   green: "bg-emerald-50 text-emerald-700",
@@ -10,6 +11,12 @@ const toneStyles = {
   blue: "bg-blue-50 text-blue-700",
 };
 
+/**
+ * Month-on-month portfolio movement strip.
+ *
+ * It highlights what changed since the previous report before users dive into
+ * project-level detail.
+ */
 export function PortfolioChange() {
   return (
     <Card className="grid gap-3 p-4 xl:col-span-3 xl:grid-cols-[220px_repeat(4,minmax(0,1fr))] xl:items-center">

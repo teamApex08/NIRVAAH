@@ -1,5 +1,11 @@
 import React from "react";
 
+/**
+ * Reusable NIRVAAH brand lockup.
+ *
+ * compact removes the subtitle for tight spaces such as sidebars and mobile
+ * headers. inverse switches the text color for dark backgrounds.
+ */
 export function BrandMark({ compact = false, inverse = false }) {
   return (
     <span className="flex min-w-0 items-center gap-3">

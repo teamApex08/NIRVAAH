@@ -2,6 +2,12 @@ import React from "react";
 import { Card, CardBody, CardHeader } from "../../../components/ui/Card.jsx";
 import { riskDistribution } from "../data/commandCentreData.js";
 
+/**
+ * Portfolio risk distribution card.
+ *
+ * The same riskDistribution array drives both the colored bar and the legend,
+ * so the chart and numbers cannot drift apart.
+ */
 export function PortfolioRisk() {
   return (
     <Card>
@@ -13,6 +19,7 @@ export function PortfolioRisk() {
         <strong className="block text-5xl font-black leading-none text-[#052b63]">19</strong>
         <span className="mt-2 block text-sm font-semibold text-[#526276]">projects require elevated attention</span>
         <div className="mt-6 flex h-4 overflow-hidden rounded-full bg-[#edf3f9]">
+          {/* Width values are precomputed in data for a simple prototype chart. */}
           {riskDistribution.map((item) => (
             <i className={item.color} style={{ width: item.width }} key={item.label} />
           ))}

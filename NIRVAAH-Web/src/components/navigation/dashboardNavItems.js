@@ -9,6 +9,8 @@ import {
   SlidersHorizontal,
 } from "lucide-react";
 
+// Navigation data is kept separate from the sidebar/bottom-nav components so
+// both desktop and mobile navigation render from the same source.
 export const dashboardNavItems = [
   { label: "Command Centre", href: "/command-centre", icon: LayoutDashboard },
   { label: "Projects", href: "/projects", icon: FileText },

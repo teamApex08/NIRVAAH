@@ -1,6 +1,12 @@
 import React from "react";
 import { Card, CardBody, CardHeader } from "../../../components/ui/Card.jsx";
 
+/**
+ * Geographic risk placeholder panel.
+ *
+ * The current map is a CSS-only visual placeholder. Keeping it isolated here
+ * makes it easy to replace later with a real map component.
+ */
 export function GeographicRisk() {
   return (
     <Card>
@@ -8,6 +14,7 @@ export function GeographicRisk() {
         <h2 className="text-lg font-black text-[#052b63]">Geographic Risk Distribution</h2>
       </CardHeader>
       <CardBody>
+        {/* Tabs preview the different map layers the real version will support. */}
         <div className="flex flex-wrap gap-2">
           {["Risk", "Project Count", "Cost Exposure"].map((tab, index) => (
             <button

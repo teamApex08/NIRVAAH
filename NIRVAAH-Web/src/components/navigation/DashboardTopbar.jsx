@@ -2,6 +2,12 @@ import React from "react";
 import { Bell, CalendarDays, Search } from "lucide-react";
 import { BrandMark } from "../shared/BrandMark.jsx";
 
+/**
+ * Sticky dashboard header.
+ *
+ * It provides brand context on small screens, search for larger screens, the
+ * reporting period, notifications, and a compact user identity chip.
+ */
 export function DashboardTopbar() {
   return (
     <header className="sticky top-0 z-40 border-b border-[#d5e1ec] bg-white/95 backdrop-blur-xl">
@@ -9,6 +15,7 @@ export function DashboardTopbar() {
         <a href="/" className="lg:hidden">
           <BrandMark compact />
         </a>
+        {/* Search is hidden on very small screens to avoid squeezing the header. */}
         <label className="ml-auto hidden min-w-0 max-w-xl flex-1 items-center gap-2 rounded-lg border border-[#d5e1ec] bg-[#f8fbfe] px-3 sm:flex">
           <Search className="size-4 text-[#748397]" aria-hidden="true" />
           <input

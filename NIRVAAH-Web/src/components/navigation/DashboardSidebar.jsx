@@ -3,6 +3,12 @@ import { BrandMark } from "../shared/BrandMark.jsx";
 import { cx } from "../../lib/formatters.js";
 import { dashboardNavItems } from "./dashboardNavItems.js";
 
+/**
+ * Desktop dashboard navigation.
+ *
+ * The activePath prop highlights the current route. It defaults to Command
+ * Centre so placeholder pages still render a sensible active item.
+ */
 export function DashboardSidebar({ activePath = "/command-centre" }) {
   return (
     <aside className="sticky top-0 hidden h-screen w-64 shrink-0 flex-col bg-[#052b63] px-4 py-5 text-white lg:flex">

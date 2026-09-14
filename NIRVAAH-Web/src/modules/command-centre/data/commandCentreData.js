@@ -9,6 +9,11 @@ import {
   ShieldAlert,
 } from "lucide-react";
 
+// Temporary frontend data for the Command Centre prototype.
+// Later, each array can be replaced by API responses without changing the
+// presentational components that render the cards, tables, and charts.
+
+// Top KPI cards shown directly under the Command Centre hero.
 export const healthKpis = [
   {
     label: "Projects Monitored",
@@ -47,6 +52,8 @@ export const healthKpis = [
   },
 ];
 
+// Rows for the "Projects Requiring Attention" table. The keys match the table
+// columns so the component stays easy to read.
 export const attentionRows = [
   {
     project: "Eastern Freight Corridor",
@@ -100,6 +107,7 @@ export const attentionRows = [
   },
 ];
 
+// Risk bands used by both the stacked progress bar and the legend.
 export const riskDistribution = [
   { label: "Critical", count: 7, percent: "16.7%", width: "17%", tone: "red", color: "bg-red-600" },
   { label: "High", count: 12, percent: "28.6%", width: "29%", tone: "orange", color: "bg-orange-500" },
@@ -108,6 +116,7 @@ export const riskDistribution = [
   { label: "Not Assessed", count: 2, percent: "4.8%", width: "4%", tone: "slate", color: "bg-slate-400" },
 ];
 
+// Month-on-month movement summary for portfolio risk.
 export const portfolioChanges = [
   { label: "Deteriorated", value: "↑ 6", text: "projects moved to higher risk", tone: "red" },
   { label: "Improved", value: "↓ 3", text: "projects moved to lower risk", tone: "green" },
@@ -115,6 +124,7 @@ export const portfolioChanges = [
   { label: "Schedule Slippage", value: "+27 months", text: "aggregate projected delay", tone: "blue" },
 ];
 
+// Simple bar-chart data showing where risk is concentrated by ministry.
 export const ministryRisk = [
   { ministry: "Railways", width: 70, count: "7/10", exposure: "₹1.42L Cr" },
   { ministry: "Road Transport & Highways", width: 63, count: "5/8", exposure: "₹0.84L Cr" },
@@ -123,6 +133,7 @@ export const ministryRisk = [
   { ministry: "Power", width: 25, count: "1/4", exposure: "₹0.19L Cr" },
 ];
 
+// Short decision-support insights displayed as officer-ready next steps.
 export const decisionInsights = [
   {
     title: "Railways account for 41% of high-risk projects.",
@@ -141,8 +152,10 @@ export const decisionInsights = [
   },
 ];
 
+// Filter labels used by the filter chip row.
 export const filters = ["Ministry: All", "Sector: All", "State: All", "Status: All", "Risk: All"];
 
+// Suggested questions for the assistant panel.
 export const assistantPrompts = [
   "Why are railway projects high risk?",
   "What changed since June?",

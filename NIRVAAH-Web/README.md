@@ -12,6 +12,9 @@ Tailwind CSS is configured through `@tailwindcss/vite`.
 ## Frontend Rules
 
 All NIRVAAH pages should follow `docs/frontend-guidelines.md`.
+Source code should include beginner-friendly comments that explain module
+ownership, component purpose, props, data shape, routing, and non-obvious layout
+decisions.
 
 ## Architecture
 

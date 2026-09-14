@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 
+// Landing page layout tokens. Reusing these strings keeps section width,
+// spacing, and button styling consistent across the page.
 const pageShell = "mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-12";
 const sectionPad = "py-16 sm:py-20 lg:py-24";
 const compactSectionPad = "py-14 sm:py-16 lg:py-20";
@@ -10,6 +12,7 @@ const secondaryButton =
 const inverseButton =
   "inline-flex min-h-11 items-center justify-center gap-2 rounded-md border border-white bg-white px-4 py-2.5 text-sm font-bold leading-none text-[#052b63] shadow-[0_12px_26px_rgba(0,0,0,0.18)] transition hover:-translate-y-0.5 hover:bg-[#e9f3fd] focus:outline-none focus-visible:ring-4 focus-visible:ring-white/30";
 
+// Public navigation links. Hash links scroll inside the landing page.
 const navItems = [
   { label: "Home", href: "#home" },
   { label: "Product", href: "#product" },
@@ -18,6 +21,7 @@ const navItems = [
   { label: "About", href: "#about" },
 ];
 
+// Portfolio snapshot metrics shown in the hero section.
 const portfolioStats = [
   { value: "1,981", label: "Projects" },
   { value: "17", label: "Ministries / Departments" },
@@ -25,6 +29,7 @@ const portfolioStats = [
   { value: "₹20.36 Lakh Crore", label: "Expenditure" },
 ];
 
+// Five-step product story for the "From Data to Decisions" section.
 const flowSteps = [
   { icon: "portfolio", label: "Monitor", text: "Track cost, progress, timelines and status." },
   { icon: "search", label: "Understand", text: "Structure project-month trends and deviations." },
@@ -33,6 +38,7 @@ const flowSteps = [
   { icon: "check", label: "Act", text: "Review drivers and intervene earlier." },
 ];
 
+// Four core capabilities NIRVAAH promises on the landing page.
 const capabilities = [
   {
     eyebrow: "Predict",
@@ -60,12 +66,14 @@ const capabilities = [
   },
 ];
 
+// Mini project rows used inside the static dashboard preview.
 const previewRows = [
   ["Eastern Freight Corridor", "Railways", "Critical", "Review"],
   ["River Basin Project", "Jal Shakti", "High", "Review"],
   ["Metro Rail Phase II", "Urban Affairs", "High", "Investigate"],
 ];
 
+// KPI cards shown inside the dashboard preview mockup.
 const previewKpis = [
   { label: "High Risk Projects", value: "312", tone: "red" },
   { label: "Cost Exposure", value: "₹5.65L Cr", tone: "green" },
@@ -73,6 +81,7 @@ const previewKpis = [
   { label: "Intervention Due", value: "74", tone: "blue" },
 ];
 
+// Data processing pipeline shown in the "How It Works" section.
 const pipeline = [
   {
     step: "Data",
@@ -106,6 +115,7 @@ const pipeline = [
   },
 ];
 
+// Outcome cards explaining why the product matters to officers.
 const outcomes = [
   {
     icon: "clock",
@@ -134,6 +144,7 @@ const outcomes = [
   },
 ];
 
+// Color mapping for the dashboard preview KPI cards.
 const kpiToneStyles = {
   red: {
     box: "border-red-200 bg-red-50",
@@ -157,6 +168,12 @@ const kpiToneStyles = {
   },
 };
 
+/**
+ * Landing page root.
+ *
+ * This component only decides the order of page sections. Each section below
+ * owns its own markup so the file is easier for new developers to scan.
+ */
 function App() {
   return (
     <div className="min-h-screen overflow-x-hidden bg-[#f6f9fc] text-[#10233d]">
@@ -182,6 +199,12 @@ function App() {
   );
 }
 
+/**
+ * Sticky public header for the landing page.
+ *
+ * The mobile menu state stays local to this component because no other section
+ * needs to know whether the navigation drawer is open.
+ */
 function LandingHeader() {
   const [isOpen, setIsOpen] = useState(false);
   const navLink =
@@ -240,6 +263,7 @@ function LandingHeader() {
           ))}
         </nav>
 
+        {/* Header CTA is desktop-only; mobile keeps the primary CTA inside the hero to avoid crowding. */}
         <a className={`${primaryButton} max-lg:!hidden lg:inline-flex`} href="/command-centre">
           Open Command Centre
           <Icon name="arrow" className="size-4" />
@@ -249,6 +273,9 @@ function LandingHeader() {
   );
 }
 
+/**
+ * First viewport section that introduces the product and primary action.
+ */
 function HeroSection() {
   return (
     <section className="relative overflow-hidden border-b border-[#d5e1ec]" id="home" aria-labelledby="hero-title">
@@ -288,6 +315,11 @@ function HeroSection() {
   );
 }
 
+/**
+ * Decorative dashboard preview behind the hero on large screens.
+ *
+ * It is hidden on smaller screens so the hero remains readable and uncluttered.
+ */
 function HeroBackdrop() {
   const miniRows = ["Railways", "Jal Shakti", "Urban Affairs", "Road Transport"];
 
@@ -314,6 +346,7 @@ function HeroBackdrop() {
           <div className="mt-4 grid grid-cols-[0.9fr_1.2fr] gap-4">
             <div className="rounded-lg border border-[#d5e1ec] bg-[#f8fbfe] p-4">
               <p className="mb-4 text-sm font-bold text-[#10233d]">Risk Distribution</p>
+              {/* CSS conic-gradient creates the donut chart without extra charting libraries. */}
               <div className="mx-auto grid size-36 place-items-center rounded-full bg-[conic-gradient(#dc2626_0_17%,#f97316_17%_46%,#facc15_46%_82%,#22c55e_82%_96%,#94a3b8_96%_100%)] p-5">
                 <div className="grid size-full place-items-center rounded-full bg-white text-center text-sm font-black text-[#052b63]">
                   42
@@ -340,6 +373,12 @@ function HeroBackdrop() {
   );
 }
 
+/**
+ * Hero-side portfolio facts.
+ *
+ * This block gives the user immediate scale/context before the page explains
+ * the product workflow.
+ */
 function PortfolioSnapshot() {
   return (
     <aside
@@ -370,6 +409,9 @@ function PortfolioSnapshot() {
   );
 }
 
+/**
+ * Small metric tile used by PortfolioSnapshot.
+ */
 function MetricItem({ value, label }) {
   return (
     <div className="border-l-4 border-[#0b8a7a] bg-[#f8fbfe] px-4 py-3">
@@ -379,6 +421,9 @@ function MetricItem({ value, label }) {
   );
 }
 
+/**
+ * Explains the product journey from monitoring data to officer action.
+ */
 function DecisionFlow() {
   return (
     <section className={`bg-white ${compactSectionPad}`} id="product" aria-labelledby="flow-title">
@@ -398,6 +443,11 @@ function DecisionFlow() {
   );
 }
 
+/**
+ * One card in the product journey.
+ *
+ * The index is displayed as a two-digit step number.
+ */
 function FlowStep({ step, index }) {
   return (
     <article className="relative rounded-lg border border-[#d5e1ec] bg-[#f8fbfe] p-5 transition hover:-translate-y-1 hover:shadow-[0_16px_38px_rgba(5,43,99,0.10)]">
@@ -411,6 +461,9 @@ function FlowStep({ step, index }) {
   );
 }
 
+/**
+ * Shows the four main intelligence capabilities NIRVAAH provides.
+ */
 function CapabilitySection() {
   return (
     <section className={`bg-[#f6f9fc] ${sectionPad}`} aria-labelledby="capabilities-title">
@@ -433,6 +486,9 @@ function CapabilitySection() {
   );
 }
 
+/**
+ * Reusable capability card used by CapabilitySection.
+ */
 function CapabilityCard({ card }) {
   return (
     <article className="rounded-lg border border-[#d5e1ec] bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-[0_16px_38px_rgba(5,43,99,0.10)]">
@@ -446,6 +502,12 @@ function CapabilityCard({ card }) {
   );
 }
 
+/**
+ * Landing-page preview of the Command Centre.
+ *
+ * The real Command Centre is a separate route; this section gives visitors a
+ * visual taste of it before they click through.
+ */
 function CommandCentrePreview() {
   return (
     <section className={`bg-white ${sectionPad}`} id="command-preview" aria-labelledby="preview-title">
@@ -475,6 +537,12 @@ function CommandCentrePreview() {
   );
 }
 
+/**
+ * Static dashboard mockup built in HTML/Tailwind.
+ *
+ * It is intentionally not interactive on the landing page; the goal is to show
+ * what the product experience feels like without adding dashboard logic here.
+ */
 function PreviewDashboard() {
   return (
     <div className="overflow-hidden rounded-lg border border-[#d5e1ec] bg-white shadow-[0_18px_45px_rgba(5,43,99,0.12)]">
@@ -511,6 +579,7 @@ function PreviewDashboard() {
           <div className="mt-5 grid gap-4 lg:grid-cols-[0.75fr_1.25fr]">
             <div className="rounded-lg border border-[#d5e1ec] bg-white p-5">
               <h4 className="text-base font-black text-[#10233d]">Risk Distribution</h4>
+              {/* Same CSS-only donut idea as the hero backdrop, kept simple for the preview. */}
               <div className="mx-auto mt-5 grid size-36 place-items-center rounded-full bg-[conic-gradient(#dc2626_0_17%,#f97316_17%_46%,#facc15_46%_82%,#22c55e_82%_96%,#94a3b8_96%_100%)] p-5">
                 <div className="grid size-full place-items-center rounded-full bg-white text-center">
                   <span className="text-3xl font-black text-[#052b63]">42</span>
@@ -544,6 +613,9 @@ function PreviewDashboard() {
   );
 }
 
+/**
+ * KPI card inside the dashboard preview.
+ */
 function PreviewKpi({ label, value, tone }) {
   const styles = kpiToneStyles[tone] ?? kpiToneStyles.blue;
 
@@ -558,6 +630,9 @@ function PreviewKpi({ label, value, tone }) {
   );
 }
 
+/**
+ * Side callout explaining one benefit of the Command Centre preview.
+ */
 function PreviewCallout({ title, text }) {
   return (
     <article className="flex gap-3 rounded-lg border border-[#d5e1ec] bg-[#f8fbfe] p-5">
@@ -572,6 +647,12 @@ function PreviewCallout({ title, text }) {
   );
 }
 
+/**
+ * Displays reference screenshots from the PAIMANA workflow.
+ *
+ * These images help evaluators connect the prototype UI to the source systems
+ * it is meant to improve.
+ */
 function ScreenshotEvidence() {
   return (
     <div className="mt-6 grid gap-5 lg:grid-cols-2">
@@ -599,6 +680,9 @@ function ScreenshotEvidence() {
   );
 }
 
+/**
+ * Explains the data-to-intelligence pipeline at a high level.
+ */
 function HowItWorksSection() {
   return (
     <section className={`bg-[#f6f9fc] ${sectionPad}`} id="how-it-works" aria-labelledby="workflow-title">
@@ -618,6 +702,9 @@ function HowItWorksSection() {
   );
 }
 
+/**
+ * One stage in the NIRVAAH intelligence pipeline.
+ */
 function PipelineStage({ stage }) {
   return (
     <article className="rounded-lg border border-[#d5e1ec] bg-white p-5 shadow-sm">
@@ -633,6 +720,11 @@ function PipelineStage({ stage }) {
   );
 }
 
+/**
+ * Outcome section for product value.
+ *
+ * It focuses on practical officer benefits instead of marketing-heavy copy.
+ */
 function OutcomeSection() {
   return (
     <section className={`bg-white ${sectionPad}`} id="about" aria-labelledby="outcomes-title">
@@ -654,6 +746,9 @@ function OutcomeSection() {
   );
 }
 
+/**
+ * Trust/context section that explains which project data the prototype uses.
+ */
 function DataCredibility() {
   return (
     <section className={`bg-[#f6f9fc] ${compactSectionPad}`} id="data-methods" aria-labelledby="data-title">
@@ -681,6 +776,9 @@ function DataCredibility() {
   );
 }
 
+/**
+ * Final conversion section at the bottom of the page.
+ */
 function FinalCTA() {
   return (
     <section className="bg-[#052b63] py-14 text-white sm:py-16">
@@ -700,6 +798,9 @@ function FinalCTA() {
   );
 }
 
+/**
+ * Footer repeats key navigation and public-sector ownership context.
+ */
 function LandingFooter() {
   return (
     <footer className="border-t border-[#d5e1ec] bg-white" id="contact">
@@ -727,6 +828,9 @@ function LandingFooter() {
   );
 }
 
+/**
+ * Shared centered section heading used across landing sections.
+ */
 function SectionHeader({ id, title, subtitle }) {
   return (
     <div className="mx-auto max-w-3xl text-center">
@@ -738,6 +842,12 @@ function SectionHeader({ id, title, subtitle }) {
   );
 }
 
+/**
+ * Minimal emblem-style mark for the ministry lockup.
+ *
+ * It is drawn in CSS so the prototype does not depend on an external emblem
+ * asset while layout is still being finalized.
+ */
 function GovEmblem() {
   return (
     <span className="grid size-9 shrink-0 place-items-center rounded-lg border border-[#d5e1ec] bg-white" aria-hidden="true">
@@ -746,6 +856,9 @@ function GovEmblem() {
   );
 }
 
+/**
+ * Small NIRVAAH product mark used beside the wordmark.
+ */
 function PlatformMark() {
   return (
     <span className="grid size-9 shrink-0 place-items-center rounded-lg border border-[#0b8a7a]/25 bg-[#edf8f5]" aria-hidden="true">
@@ -754,6 +867,12 @@ function PlatformMark() {
   );
 }
 
+/**
+ * Local SVG icon helper for the landing page.
+ *
+ * Dashboard screens use lucide-react. This helper keeps the landing page's
+ * original lightweight custom icons in one searchable place.
+ */
 function Icon({ name, className = "size-5" }) {
   const shared = {
     width: 24,

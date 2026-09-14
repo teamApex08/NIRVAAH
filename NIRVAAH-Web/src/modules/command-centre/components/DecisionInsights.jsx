@@ -2,6 +2,12 @@ import React from "react";
 import { Card, CardBody, CardHeader } from "../../../components/ui/Card.jsx";
 import { decisionInsights } from "../data/commandCentreData.js";
 
+/**
+ * Converts model output into short decision notes.
+ *
+ * In production this section should stay concise: officers need a small number
+ * of high-signal insights, not a long analytics report.
+ */
 export function DecisionInsights() {
   return (
     <Card>
@@ -10,6 +16,7 @@ export function DecisionInsights() {
       </CardHeader>
       <CardBody className="grid gap-4">
         {decisionInsights.map((insight) => {
+          // The icon component is stored in data so each insight can choose its own visual cue.
           const Icon = insight.icon;
 
           return (

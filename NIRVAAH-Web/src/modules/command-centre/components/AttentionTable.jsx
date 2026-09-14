@@ -6,6 +6,13 @@ import { Pill } from "../../../components/ui/Pill.jsx";
 import { attentionRows } from "../data/commandCentreData.js";
 import { RiskPill } from "./RiskPill.jsx";
 
+/**
+ * Priority project table.
+ *
+ * The table keeps all decision-critical columns visible on desktop. On smaller
+ * screens it scrolls horizontally so the data stays readable instead of being
+ * squeezed into unreadable stacked labels.
+ */
 export function AttentionTable() {
   return (
     <Card className="xl:col-span-2">
@@ -26,6 +33,7 @@ export function AttentionTable() {
         </div>
       </CardHeader>
       <CardBody className="p-0">
+        {/* Intentional mobile behavior: scroll the wide table, do not shrink columns. */}
         <div className="overflow-x-auto">
           <table className="w-full min-w-[920px] border-collapse text-left">
             <thead>
@@ -41,6 +49,7 @@ export function AttentionTable() {
             </thead>
             <tbody>
               {attentionRows.map((row) => (
+                // Each row represents one project that needs officer attention.
                 <tr className="text-sm text-[#263d59] transition hover:bg-[#f8fbfe]" key={row.project}>
                   <td className="border-b border-[#e7eff7] px-4 py-3 font-black text-[#10233d]">{row.project}</td>
                   <td className="border-b border-[#e7eff7] px-4 py-3">{row.ministry}</td>
