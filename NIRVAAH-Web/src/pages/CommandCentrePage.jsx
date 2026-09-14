@@ -1,17 +1,17 @@
 import React from "react";
-import { MetricCard } from "../../../components/ui/MetricCard.jsx";
-import { DashboardLayout } from "../../../components/layout/DashboardLayout.jsx";
-import { healthKpis } from "../data/commandCentreData.js";
-import { AskNirvaah } from "../components/AskNirvaah.jsx";
-import { AttentionTable } from "../components/AttentionTable.jsx";
-import { CommandFilters } from "../components/CommandFilters.jsx";
-import { CommandHero } from "../components/CommandHero.jsx";
-import { DecisionInsights } from "../components/DecisionInsights.jsx";
-import { FinancialSummary } from "../components/FinancialSummary.jsx";
-import { GeographicRisk } from "../components/GeographicRisk.jsx";
-import { PortfolioChange } from "../components/PortfolioChange.jsx";
-import { PortfolioRisk } from "../components/PortfolioRisk.jsx";
-import { RiskByMinistry } from "../components/RiskByMinistry.jsx";
+import { DashboardLayout } from "../components/layout/DashboardLayout.jsx";
+import { AskNirvaah } from "../components/command-centre/AskNirvaah.jsx";
+import { AttentionTable } from "../components/command-centre/AttentionTable.jsx";
+import { CommandFilters } from "../components/command-centre/CommandFilters.jsx";
+import { CommandHero } from "../components/command-centre/CommandHero.jsx";
+import { DecisionInsights } from "../components/command-centre/DecisionInsights.jsx";
+import { FinancialSummary } from "../components/command-centre/FinancialSummary.jsx";
+import { GeographicRisk } from "../components/command-centre/GeographicRisk.jsx";
+import { PortfolioChange } from "../components/command-centre/PortfolioChange.jsx";
+import { PortfolioRisk } from "../components/command-centre/PortfolioRisk.jsx";
+import { RiskByMinistry } from "../components/command-centre/RiskByMinistry.jsx";
+import { healthKpis } from "../components/command-centre/commandCentreData.js";
+import { MetricCard } from "../components/ui/MetricCard.jsx";
 
 /**
  * Route-level page for /command-centre.

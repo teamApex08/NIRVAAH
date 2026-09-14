@@ -1,6 +1,6 @@
 import React from "react";
 import { RotateCcw, SlidersHorizontal } from "lucide-react";
-import { filters } from "../data/commandCentreData.js";
+import { filters } from "./commandCentreData.js";
 
 /**
  * Filter chip row for narrowing the portfolio.

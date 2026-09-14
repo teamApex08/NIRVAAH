@@ -1,7 +1,7 @@
 import React from "react";
-import { Card } from "../../../components/ui/Card.jsx";
-import { cx } from "../../../lib/formatters.js";
-import { portfolioChanges } from "../data/commandCentreData.js";
+import { cx } from "../../lib/formatters.js";
+import { Card } from "../ui/Card.jsx";
+import { portfolioChanges } from "./commandCentreData.js";
 
 // Color choices for positive, warning, and neutral movement cards.
 const toneStyles = {

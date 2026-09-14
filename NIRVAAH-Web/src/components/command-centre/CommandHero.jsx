@@ -1,5 +1,5 @@
 import React from "react";
-import { Pill } from "../../../components/ui/Pill.jsx";
+import { Pill } from "../ui/Pill.jsx";
 
 /**
  * Top summary area for the Command Centre route.

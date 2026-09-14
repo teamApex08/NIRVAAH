@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, CardBody, CardHeader } from "../../../components/ui/Card.jsx";
+import { Card, CardBody, CardHeader } from "../ui/Card.jsx";
 
 /**
  * Geographic risk placeholder panel.

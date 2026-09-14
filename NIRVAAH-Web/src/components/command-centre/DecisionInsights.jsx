@@ -1,6 +1,6 @@
 import React from "react";
-import { Card, CardBody, CardHeader } from "../../../components/ui/Card.jsx";
-import { decisionInsights } from "../data/commandCentreData.js";
+import { Card, CardBody, CardHeader } from "../ui/Card.jsx";
+import { decisionInsights } from "./commandCentreData.js";
 
 /**
  * Converts model output into short decision notes.

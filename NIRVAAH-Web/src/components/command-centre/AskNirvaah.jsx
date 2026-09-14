@@ -1,8 +1,8 @@
 import React from "react";
 import { Send } from "lucide-react";
-import { Button } from "../../../components/ui/Button.jsx";
-import { Card, CardBody, CardHeader } from "../../../components/ui/Card.jsx";
-import { assistantPrompts } from "../data/commandCentreData.js";
+import { Button } from "../ui/Button.jsx";
+import { Card, CardBody, CardHeader } from "../ui/Card.jsx";
+import { assistantPrompts } from "./commandCentreData.js";
 
 /**
  * Assistant panel for natural-language portfolio questions.

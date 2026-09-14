@@ -1,5 +1,5 @@
 import React from "react";
-import { cx } from "../../../lib/formatters.js";
+import { cx } from "../../lib/formatters.js";
 
 // Maps risk labels to the visual treatment used wherever risk status appears.
 const riskStyles = {

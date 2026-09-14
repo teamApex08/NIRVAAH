@@ -1,7 +1,7 @@
 import React from "react";
-import CommandCentrePage from "../modules/command-centre/pages/CommandCentrePage.jsx";
-import LandingPage from "../modules/landing/pages/LandingPage.jsx";
-import ProjectsPage from "../modules/projects/pages/ProjectsPage.jsx";
+import CommandCentrePage from "../pages/CommandCentrePage.jsx";
+import LandingPage from "../pages/LandingPage.jsx";
+import ProjectsPage from "../pages/ProjectsPage.jsx";
 
 // Small route registry for the Vite prototype. Each route owns its URL path,
 // browser title, and page component in one easy-to-scan place.

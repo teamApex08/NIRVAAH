@@ -1,9 +1,9 @@
 import React from "react";
 import { ArrowRight, TrendingUp } from "lucide-react";
-import { Button } from "../../../components/ui/Button.jsx";
-import { Card, CardBody, CardHeader } from "../../../components/ui/Card.jsx";
-import { Pill } from "../../../components/ui/Pill.jsx";
-import { attentionRows } from "../data/commandCentreData.js";
+import { Button } from "../ui/Button.jsx";
+import { Card, CardBody, CardHeader } from "../ui/Card.jsx";
+import { Pill } from "../ui/Pill.jsx";
+import { attentionRows } from "./commandCentreData.js";
 import { RiskPill } from "./RiskPill.jsx";
 
 /**

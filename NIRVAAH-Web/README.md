@@ -18,9 +18,10 @@ decisions.
 
 ## Architecture
 
-The frontend is organized like the BrowzeSpace frontend: route shell in
-`src/app`, reusable components in `src/components`, module-owned pages in
-`src/modules`, hooks in `src/hooks`, and API/config utilities in `src/lib`.
+The frontend now uses a page-first structure: route files live directly in
+`src/pages`, page-specific components and dummy data live in matching folders
+inside `src/components`, and shared app utilities remain in `src/app`,
+`src/hooks`, and `src/lib`.
 
 See `docs/frontend-architecture.md`.
 
