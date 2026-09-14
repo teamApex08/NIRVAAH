@@ -1,6 +1,6 @@
-# NIRVAAH
+# NIRVAAH Backend
 
-Modular monolith starter structure for the NIRVAAH project.
+Modular monolith backend starter structure for the NIRVAAH project.
 
 The application is organized around business modules. Each module owns its
 domain model, application use cases, infrastructure adapters, API interfaces,
@@ -10,9 +10,8 @@ together.
 ## Directory Layout
 
 ```text
-NIRVAAH/
+NIRVAAH-Backend/
   apps/                 Runtime entrypoints
-    web/                React/Vite product landing page
     api/                HTTP/API app composition
     worker/             Background job or async processing entrypoint
   docs/                 Architecture and module guidelines
@@ -50,8 +49,3 @@ NIRVAAH/
 2. Add the framework/runtime files at the root.
 3. Replace starter modules with the actual NIRVAAH bounded contexts.
 4. Add one vertical slice before expanding shared abstractions.
-
-## Frontend Rules
-
-All NIRVAAH pages should follow the project frontend guidelines in
-`docs/frontend-guidelines.md`.
