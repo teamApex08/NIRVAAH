@@ -1,4 +1,3 @@
-import React from "react";
 import { Card, CardBody, CardHeader } from "../ui/Card.jsx";
 
 // Compact financial metrics shown together in one panel.
@@ -8,11 +7,7 @@ const financials = [
   ["Expenditure", "₹19.26 Lakh Cr"],
 ];
 
-/**
- * Portfolio-level cost summary.
- *
- * The data is local for now and should later come from PAIMANA/OCMS APIs.
- */
+
 export function FinancialSummary() {
   return (
     <Card className="xl:col-span-2">

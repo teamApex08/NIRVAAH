@@ -1,4 +1,3 @@
-import React from "react";
 import { cx } from "../../lib/formatters.js";
 import { Card } from "../ui/Card.jsx";
 import { portfolioChanges } from "./commandCentreData.js";
@@ -11,12 +10,7 @@ const toneStyles = {
   blue: "bg-blue-50 text-blue-700",
 };
 
-/**
- * Month-on-month portfolio movement strip.
- *
- * It highlights what changed since the previous report before users dive into
- * project-level detail.
- */
+
 export function PortfolioChange() {
   return (
     <Card className="grid gap-3 p-4 xl:col-span-3 xl:grid-cols-[220px_repeat(4,minmax(0,1fr))] xl:items-center">

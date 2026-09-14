@@ -1,13 +1,6 @@
-import React from "react";
 import { Card, CardBody, CardHeader } from "../ui/Card.jsx";
 import { decisionInsights } from "./commandCentreData.js";
 
-/**
- * Converts model output into short decision notes.
- *
- * In production this section should stay concise: officers need a small number
- * of high-signal insights, not a long analytics report.
- */
 export function DecisionInsights() {
   return (
     <Card>

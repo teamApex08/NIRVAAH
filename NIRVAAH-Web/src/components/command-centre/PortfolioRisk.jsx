@@ -1,13 +1,6 @@
-import React from "react";
 import { Card, CardBody, CardHeader } from "../ui/Card.jsx";
 import { riskDistribution } from "./commandCentreData.js";
 
-/**
- * Portfolio risk distribution card.
- *
- * The same riskDistribution array drives both the colored bar and the legend,
- * so the chart and numbers cannot drift apart.
- */
 export function PortfolioRisk() {
   return (
     <Card>

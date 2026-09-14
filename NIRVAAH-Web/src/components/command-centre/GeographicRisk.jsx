@@ -1,12 +1,5 @@
-import React from "react";
 import { Card, CardBody, CardHeader } from "../ui/Card.jsx";
 
-/**
- * Geographic risk placeholder panel.
- *
- * The current map is a CSS-only visual placeholder. Keeping it isolated here
- * makes it easy to replace later with a real map component.
- */
 export function GeographicRisk() {
   return (
     <Card>

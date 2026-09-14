@@ -9,7 +9,7 @@ import { cx } from "../../lib/formatters.js";
  */
 export function Card({ as: Component = "section", className, children, ...props }) {
   return (
-    <Component className={cx("min-w-0 rounded-lg border border-[#d5e1ec] bg-white shadow-sm", className)} {...props}>
+    <Component className={cx("rounded-lg border border-[#d5e1ec] bg-white shadow-sm", className)} {...props}>
       {children}
     </Component>
   );

@@ -18,7 +18,7 @@ const toneClasses = {
  */
 export function MetricCard({ icon: Icon, label, value, note, tone = "blue" }) {
   return (
-    <article className="min-w-0 rounded-lg border border-[#d5e1ec] bg-white p-4 shadow-sm">
+    <article className="rounded-lg border border-[#d5e1ec] bg-white p-4 shadow-sm">
       <div className="flex items-start gap-3">
         {Icon && (
           <span className={cx("grid size-11 shrink-0 place-items-center rounded-lg", toneClasses[tone])}>
