@@ -1,11 +1,5 @@
-import React from "react";
 import { Pill } from "../ui/Pill.jsx";
 
-/**
- * Top summary area for the Command Centre route.
- *
- * It gives users the reporting context before they scan KPIs and tables.
- */
 export function CommandHero() {
   return (
     <section className="grid gap-4 border-b border-[#d5e1ec] bg-[linear-gradient(115deg,#eaf6ff_0%,#f8fbfe_48%,#d9efff_100%)] px-4 py-5 sm:px-6 lg:grid-cols-[1fr_auto] lg:items-center lg:px-8">

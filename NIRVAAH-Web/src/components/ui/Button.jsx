@@ -10,12 +10,6 @@ const variants = {
   inverse: "border-white bg-white text-[#052b63] shadow-[0_12px_26px_rgba(0,0,0,0.18)] hover:bg-[#e9f3fd]",
 };
 
-/**
- * Shared button/link primitive.
- *
- * Use as="a" when the control should navigate, otherwise it renders as a
- * normal button. Keeping both paths here makes CTAs visually consistent.
- */
 export function Button({ as: Component = "button", className, variant = "primary", children, ...props }) {
   return (
     <Component

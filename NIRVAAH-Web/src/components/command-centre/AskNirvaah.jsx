@@ -1,15 +1,8 @@
-import React from "react";
 import { Send } from "lucide-react";
 import { Button } from "../ui/Button.jsx";
 import { Card, CardBody, CardHeader } from "../ui/Card.jsx";
 import { assistantPrompts } from "./commandCentreData.js";
 
-/**
- * Assistant panel for natural-language portfolio questions.
- *
- * The buttons are starter prompts for demo UX; the input is presentational
- * until it is connected to the backend assistant service.
- */
 export function AskNirvaah() {
   return (
     <Card>

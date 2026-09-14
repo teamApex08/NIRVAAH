@@ -9,11 +9,7 @@ import {
   ShieldAlert,
 } from "lucide-react";
 
-// Temporary frontend data for the Command Centre prototype.
-// Later, each array can be replaced by API responses without changing the
-// presentational components that render the cards, tables, and charts.
 
-// Top KPI cards shown directly under the Command Centre hero.
 export const healthKpis = [
   {
     label: "Projects Monitored",

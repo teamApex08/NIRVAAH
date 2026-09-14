@@ -1,4 +1,3 @@
-import React from "react";
 import { ArrowRight, TrendingUp } from "lucide-react";
 import { Button } from "../ui/Button.jsx";
 import { Card, CardBody, CardHeader } from "../ui/Card.jsx";
@@ -6,13 +5,6 @@ import { Pill } from "../ui/Pill.jsx";
 import { attentionRows } from "./commandCentreData.js";
 import { RiskPill } from "./RiskPill.jsx";
 
-/**
- * Priority project table.
- *
- * The table keeps all decision-critical columns visible on desktop. On smaller
- * screens it scrolls horizontally so the data stays readable instead of being
- * squeezed into unreadable stacked labels.
- */
 export function AttentionTable() {
   return (
     <Card className="xl:col-span-2">

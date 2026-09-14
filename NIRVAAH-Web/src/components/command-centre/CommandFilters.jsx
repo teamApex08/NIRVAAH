@@ -1,13 +1,6 @@
-import React from "react";
 import { RotateCcw, SlidersHorizontal } from "lucide-react";
 import { filters } from "./commandCentreData.js";
 
-/**
- * Filter chip row for narrowing the portfolio.
- *
- * These controls are visual placeholders today. When the backend API is wired,
- * each chip can open a menu and update the dashboard query.
- */
 export function CommandFilters() {
   return (
     <section className="flex flex-wrap gap-2" aria-label="Command Centre filters">

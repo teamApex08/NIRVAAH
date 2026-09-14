@@ -1,15 +1,8 @@
-import React from "react";
 import { ArrowLeft, Construction } from "lucide-react";
 import { Button } from "../ui/Button.jsx";
 import { Card, CardBody } from "../ui/Card.jsx";
 import { projectsPlaceholder } from "./projectsData.js";
 
-/**
- * Placeholder content for the Projects route.
- *
- * Keeping this outside src/pages/ProjectsPage.jsx lets the page stay thin and
- * makes future Projects components easy to add beside it.
- */
 export function ProjectsEmptyState() {
   return (
     <Card className="mx-auto max-w-3xl">
