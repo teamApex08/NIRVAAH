@@ -13,7 +13,7 @@ export function PeerComparison() {
   return (
     <Card className="overflow-hidden">
       <CardHeader>
-        <h2 className="text-lg font-black text-[#052b63]">Peer Comparison</h2>
+        <h2 className="text-lg font-black text-[#0b2545]">Peer Comparison</h2>
         <p className="mt-1 text-sm text-[#526276]">Compare a selected project with peer medians.</p>
       </CardHeader>
       <CardBody className="grid gap-4">
@@ -28,26 +28,26 @@ export function PeerComparison() {
         </div>
 
         <div className="grid gap-3 sm:grid-cols-2">
-          <div className="grid grid-cols-[44px_1fr_auto] gap-3 rounded-lg bg-[#f6f9fc] p-3">
-            <span className="grid size-11 place-items-center rounded-lg bg-[#e9f3fd] text-[#075db7]">
+          <div className="grid grid-cols-[44px_1fr_auto] gap-3 rounded-md border border-[#e2e8f0] bg-[#f8fafc] p-3">
+            <span className="grid size-11 place-items-center rounded-lg bg-[#f2f5f8] text-[#0b2545]">
               <UserRoundCheck className="size-5" aria-hidden="true" />
             </span>
             <span className="min-w-0">
               <span className="block text-xs font-black uppercase tracking-wide text-[#748397]">Selected Project</span>
-              <strong className="block text-sm font-black text-[#052b63]">{peerComparison.selectedProject.name}</strong>
+              <strong className="block text-sm font-black text-[#0b2545]">{peerComparison.selectedProject.name}</strong>
               <span className="block text-xs font-bold text-[#748397]">{peerComparison.selectedProject.id}</span>
             </span>
             <Pill tone="red">{peerComparison.selectedProject.risk}</Pill>
           </div>
           <button
-            className="grid min-h-20 grid-cols-[44px_1fr] gap-3 rounded-lg border border-dashed border-[#75aee7] bg-[#f8fbfe] p-3 text-left transition hover:bg-[#eef6ff]"
+            className="grid min-h-20 grid-cols-[44px_1fr] gap-3 rounded-lg border border-dashed border-[#94a3b8] bg-[#f8fbfe] p-3 text-left transition hover:bg-[#f8fafc]"
             type="button"
           >
-            <span className="grid size-11 place-items-center rounded-lg bg-[#e9f3fd] text-[#075db7]">
+            <span className="grid size-11 place-items-center rounded-lg bg-[#f2f5f8] text-[#0b2545]">
               <Plus className="size-5" aria-hidden="true" />
             </span>
             <span>
-              <strong className="block text-sm font-black text-[#052b63]">Add Peer Project</strong>
+              <strong className="block text-sm font-black text-[#0b2545]">Add Peer Project</strong>
               <span className="mt-1 block text-xs font-bold text-[#748397]">Select a project to compare</span>
             </span>
           </button>
@@ -58,7 +58,7 @@ export function PeerComparison() {
             <button
               className={cx(
                 "min-h-9 shrink-0 border-b-2 border-transparent px-3 text-sm font-black",
-                index === 0 && "border-[#075db7] text-[#075db7]",
+                index === 0 && "border-[#d97706] bg-[#fff8ed] text-[#0b2545]",
               )}
               type="button"
               key={tab}
@@ -71,7 +71,7 @@ export function PeerComparison() {
         <div className="max-w-full overflow-x-auto" style={{ contain: "layout paint" }}>
           <table className="w-[720px] max-w-none table-fixed border-collapse text-left">
             <thead>
-              <tr className="bg-[#edf6ff] text-xs font-black text-[#052b63]">
+              <tr className="bg-[#f7f2e8] text-xs font-black text-[#0b2545]">
                 {["Metric", "Selected Project", "Peer Median", "Difference"].map((header) => (
                   <th className="border-b border-[#d5e1ec] px-4 py-3" key={header}>
                     {header}

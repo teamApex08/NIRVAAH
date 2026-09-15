@@ -6,7 +6,7 @@ import { cycleChanges, monthlyWarningTrend, severityDistribution, warningTypeBre
 const changeTone = {
   red: "bg-red-50 text-red-700",
   orange: "bg-orange-50 text-orange-700",
-  blue: "bg-blue-50 text-blue-700",
+  blue: "bg-[#f2f5f8] text-[#0b2545]",
   green: "bg-emerald-50 text-emerald-700",
 };
 
@@ -31,7 +31,7 @@ function SeverityDistribution() {
   return (
     <Card>
       <CardHeader>
-        <h2 className="text-lg font-black text-[#052b63]">Warning Severity Distribution</h2>
+        <h2 className="text-lg font-black text-[#0b2545]">Warning Severity Distribution</h2>
         <p className="mt-1 text-sm text-[#526276]">Analysed projects only</p>
       </CardHeader>
       <CardBody className="grid gap-4 sm:grid-cols-[150px_1fr] sm:items-center lg:grid-cols-1 xl:grid-cols-[150px_1fr]">
@@ -41,7 +41,7 @@ function SeverityDistribution() {
           aria-hidden="true"
         >
           <div className="grid size-24 place-items-center rounded-full bg-white text-center shadow-inner">
-            <strong className="block text-2xl font-black leading-none text-[#052b63]">76</strong>
+            <strong className="block text-2xl font-black leading-none text-[#0b2545]">76</strong>
             <span className="text-xs font-bold text-[#526276]">Active Warnings</span>
           </div>
         </div>
@@ -52,7 +52,7 @@ function SeverityDistribution() {
                 <i className={cx("size-2.5 rounded-full", item.color)} />
                 {item.label}
               </span>
-              <span className="font-black text-[#052b63]">
+              <span className="font-black text-[#0b2545]">
                 {item.count} ({item.percent})
               </span>
             </div>
@@ -67,7 +67,7 @@ function WarningTypeBreakdown() {
   return (
     <Card>
       <CardHeader>
-        <h2 className="text-lg font-black text-[#052b63]">Warning Type Breakdown</h2>
+        <h2 className="text-lg font-black text-[#0b2545]">Warning Type Breakdown</h2>
         <p className="mt-1 text-sm text-[#526276]">Top detected signal categories</p>
       </CardHeader>
       <CardBody className="grid gap-3">
@@ -75,7 +75,7 @@ function WarningTypeBreakdown() {
           <div className="grid gap-1.5" key={item.label}>
             <div className="flex items-center justify-between gap-3 text-sm">
               <span className="font-bold text-[#263d59]">{item.label}</span>
-              <span className="font-black text-[#052b63]">{item.count}</span>
+              <span className="font-black text-[#0b2545]">{item.count}</span>
             </div>
             <span className="h-2 overflow-hidden rounded-full bg-[#dce8f3]">
               <i className={cx("block h-full rounded-full", item.color)} style={{ width: `${item.width}%` }} />
@@ -97,7 +97,7 @@ function MonthlyWarningTrend() {
   return (
     <Card>
       <CardHeader>
-        <h2 className="text-lg font-black text-[#052b63]">Monthly Warning Trend</h2>
+        <h2 className="text-lg font-black text-[#0b2545]">Monthly Warning Trend</h2>
         <p className="mt-1 text-sm text-[#526276]">Total, new and critical warnings</p>
       </CardHeader>
       <CardBody>
@@ -128,12 +128,12 @@ function CycleChanges() {
   return (
     <Card>
       <CardHeader>
-        <h2 className="text-lg font-black text-[#052b63]">What Changed This Cycle?</h2>
+        <h2 className="text-lg font-black text-[#0b2545]">What Changed This Cycle?</h2>
         <p className="mt-1 text-sm text-[#526276]">NIRVAAH generated insights</p>
       </CardHeader>
       <CardBody className="grid gap-3">
         {cycleChanges.map(({ icon: Icon, text, tone }) => (
-          <div className="grid grid-cols-[40px_1fr] gap-3 rounded-lg bg-[#f6f9fc] p-3" key={text}>
+          <div className="grid grid-cols-[40px_1fr] gap-3 rounded-md border border-[#e2e8f0] bg-[#f8fafc] p-3" key={text}>
             <span className={cx("grid size-10 place-items-center rounded-lg", changeTone[tone])}>
               <Icon className="size-5" aria-hidden="true" />
             </span>

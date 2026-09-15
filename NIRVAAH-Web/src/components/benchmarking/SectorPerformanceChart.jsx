@@ -6,8 +6,8 @@ import { sectorComparison } from "./benchmarkingData.js";
 const chartTabs = ["Cost Escalation", "Schedule Delay", "Physical Progress", "Risk Distribution"];
 
 const legend = [
-  { label: "Sector Median", className: "bg-blue-600" },
-  { label: "Interquartile Range", className: "bg-blue-200" },
+  { label: "Sector Median", className: "bg-[#0b2545]" },
+  { label: "Interquartile Range", className: "bg-[#c9d6e2]" },
   { label: "Sector Average", className: "bg-orange-500" },
   { label: "Your Selection", className: "bg-red-500" },
 ];
@@ -26,16 +26,22 @@ export function SectorPerformanceChart() {
   return (
     <Card className="overflow-hidden" id="sector-performance">
       <CardHeader>
-        <h2 className="text-lg font-black text-[#052b63]">Sector Performance Comparison</h2>
+        <h2 className="nirvaah-section-title">Sector Performance Comparison</h2>
         <p className="mt-1 text-sm text-[#526276]">Compare selected sector values against peer distribution.</p>
       </CardHeader>
       <CardBody className="grid gap-4">
+        <div className="rounded-[8px] border border-[#f1d5b2] bg-[#fff8ed] p-3">
+          <p className="text-xs font-black uppercase text-[#b45309]">Interpretation</p>
+          <p className="mt-1 text-sm font-bold leading-6 text-[#0b2545]">
+            Eastern Freight Corridor sits above the rail peer median on cost escalation while remaining slightly below peer progress.
+          </p>
+        </div>
         <div className="flex min-w-0 gap-2 overflow-x-auto">
           {chartTabs.map((tab, index) => (
             <button
               className={cx(
                 "min-h-9 shrink-0 rounded-md px-3 text-sm font-black transition",
-                index === 0 ? "bg-[#075db7] text-white" : "bg-[#eef5fb] text-[#052b63] hover:bg-[#dcebfb]",
+                index === 0 ? "bg-[#d97706] text-white" : "bg-[#f8fafc] text-[#0b2545] hover:bg-[#fff8ed]",
               )}
               type="button"
               key={tab}
@@ -65,7 +71,7 @@ export function SectorPerformanceChart() {
                 </g>
               );
             })}
-            <text fill="#052b63" fontSize="12" fontWeight="800" transform="rotate(-90 14 124)" x="14" y="124">
+            <text fill="#0b2545" fontSize="12" fontWeight="800" transform="rotate(-90 14 124)" x="14" y="124">
               Cost Escalation (%)
             </text>
             {sectorComparison.map((sector, index) => {
@@ -74,9 +80,9 @@ export function SectorPerformanceChart() {
               const boxBottom = yFor(sector.q1);
               return (
                 <g key={sector.sector}>
-                  <line stroke="#3b82f6" strokeWidth="2" x1={x} x2={x} y1={yFor(sector.high)} y2={yFor(sector.low)} />
-                  <rect fill="#bfdbfe" height={boxBottom - boxTop} opacity="0.75" rx="5" width="42" x={x - 21} y={boxTop} />
-                  <line stroke="#1d4ed8" strokeWidth="2" x1={x - 24} x2={x + 24} y1={yFor(sector.median)} y2={yFor(sector.median)} />
+                  <line stroke="#7898b6" strokeWidth="2" x1={x} x2={x} y1={yFor(sector.high)} y2={yFor(sector.low)} />
+                  <rect fill="#c9d6e2" height={boxBottom - boxTop} opacity="0.78" rx="5" width="42" x={x - 21} y={boxTop} />
+                  <line stroke="#0b2545" strokeWidth="2" x1={x - 24} x2={x + 24} y1={yFor(sector.median)} y2={yFor(sector.median)} />
                   <circle cx={x} cy={yFor(sector.average)} fill="#f97316" r="5" />
                   <circle cx={x} cy={yFor(sector.selection)} fill="#ef4444" r="5" />
                   <text fill="#263d59" fontSize="11" fontWeight="700" textAnchor="middle" x={x} y="244">

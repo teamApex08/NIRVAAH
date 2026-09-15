@@ -19,38 +19,39 @@ export const benchmarkFilters = [
 export const benchmarkKpis = [
   {
     icon: Building2,
-    value: "1,775",
-    label: "Total Projects",
-    note: "Source: PAIMANA July 2026",
+    value: "Eastern Freight Corridor",
+    label: "Selected Project",
+    note: "Railways · Uttar Pradesh",
     tone: "blue",
+    priority: "primary",
+  },
+  {
+    icon: GitCompareArrows,
+    value: "84 peers",
+    label: "Peer Group",
+    note: "Comparable rail transport projects",
+    tone: "slate",
   },
   {
     icon: IndianRupee,
-    value: "₹37.10 L Cr",
-    label: "Total Revised Cost",
-    note: "Source: PAIMANA July 2026",
+    value: "+137%",
+    label: "Cost Variance",
+    note: "Above peer median original cost",
     tone: "orange",
   },
   {
-    icon: BarChart3,
-    value: "42%",
-    label: "Average Physical Progress",
-    note: "Source: PAIMANA July 2026",
-    tone: "green",
-  },
-  {
     icon: CalendarDays,
-    value: "Mar 2030",
-    label: "Median Revised Completion",
-    note: "Source: PAIMANA July 2026",
-    tone: "green",
+    value: "78th",
+    label: "Delay Percentile",
+    note: "Worse than most comparable projects",
+    tone: "red",
   },
   {
-    icon: TrendingUp,
-    value: "18%",
-    label: "Projects With Cost Escalation",
-    note: "Analysed project cohort",
-    tone: "red",
+    icon: BarChart3,
+    value: "-4 pp",
+    label: "Progress Variance",
+    note: "Below peer median physical progress",
+    tone: "green",
   },
 ];
 
@@ -146,9 +147,9 @@ export const peerComparison = {
 };
 
 export const benchmarkInsights = [
-  "Railways has the highest share of cost escalation in the selected cohort.",
-  "Transport peers show better schedule stability than urban development projects.",
-  "Eastern Freight Corridor is above peer median cost but slightly below median progress.",
+  "Schedule performance is worse than 78% of comparable railway infrastructure projects.",
+  "Eastern Freight Corridor is above peer median cost while remaining slightly below median progress.",
+  "The strongest comparison weakness is cost escalation; the strongest comparison strength is current physical progress versus older rail projects.",
 ];
 
 export const benchmarkActions = [

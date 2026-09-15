@@ -1,50 +1,51 @@
 import {
   AlertTriangle,
   BarChart3,
-  BellRing,
   Clock3,
   IndianRupee,
   Landmark,
   Layers3,
   ShieldAlert,
+  TrendingUp,
 } from "lucide-react";
 
 
 export const healthKpis = [
   {
-    label: "Projects Monitored",
+    label: "Portfolio Health",
     value: "1,775",
-    note: "Across 17 Ministries / Departments",
+    note: "17 ministries · 42 model-assessed",
     icon: Layers3,
     tone: "blue",
+    priority: "primary",
   },
   {
-    label: "Critical / High Risk",
+    label: "Requires Attention",
     value: "19 of 42",
-    note: "7 Critical · 12 High",
+    note: "7 critical · 12 high",
     icon: ShieldAlert,
     tone: "red",
   },
   {
-    label: "Cost Overrun Exposure",
+    label: "Cost Exposure",
     value: "₹3.40 L Cr",
-    note: "Across 11 exposed projects",
+    note: "11 projects above tolerance",
     icon: IndianRupee,
-    tone: "green",
-  },
-  {
-    label: "Schedule Delay Exposure",
-    value: "14 projects",
-    note: "Aggregate slippage: 27 months",
-    icon: Clock3,
     tone: "orange",
   },
   {
-    label: "Active Early Warnings",
-    value: "5 new",
-    note: "18 unresolved warnings",
-    icon: BellRing,
-    tone: "purple",
+    label: "Recent Movement",
+    value: "6 worsened",
+    note: "3 improved since June",
+    icon: TrendingUp,
+    tone: "slate",
+  },
+  {
+    label: "Delay Exposure",
+    value: "+27 mo",
+    note: "Projected aggregate slippage",
+    icon: Clock3,
+    tone: "red",
   },
 ];
 
@@ -129,6 +130,13 @@ export const ministryRisk = [
   { ministry: "Power", width: 25, count: "1/4", exposure: "₹0.19L Cr" },
 ];
 
+export const geographicRisk = [
+  { state: "Uttar Pradesh", attention: "5 projects", driver: "Rail corridor progress", exposure: "₹1.18L Cr" },
+  { state: "Maharashtra", attention: "4 projects", driver: "Urban transport delays", exposure: "₹0.62L Cr" },
+  { state: "Bihar", attention: "3 projects", driver: "Water-resource cost drift", exposure: "₹0.36L Cr" },
+  { state: "Karnataka", attention: "2 projects", driver: "Land handover pending", exposure: "₹0.28L Cr" },
+];
+
 // Short decision-support insights displayed as officer-ready next steps.
 export const decisionInsights = [
   {
@@ -150,10 +158,3 @@ export const decisionInsights = [
 
 // Filter labels used by the filter chip row.
 export const filters = ["Ministry: All", "Sector: All", "State: All", "Status: All", "Risk: All"];
-
-// Suggested questions for the assistant panel.
-export const assistantPrompts = [
-  "Why are railway projects high risk?",
-  "What changed since June?",
-  "Show projects with increasing cost risk",
-];

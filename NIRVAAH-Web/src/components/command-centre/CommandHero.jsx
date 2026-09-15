@@ -1,24 +1,29 @@
-import { Pill } from "../ui/Pill.jsx";
+import { ArrowRight, ShieldAlert } from "lucide-react";
+import { Button } from "../ui/Button.jsx";
+import { PageHero } from "../ui/PageHero.jsx";
 
 export function CommandHero() {
   return (
-    <section className="grid gap-4 border-b border-[#d5e1ec] bg-[linear-gradient(115deg,#eaf6ff_0%,#f8fbfe_48%,#d9efff_100%)] px-4 py-5 sm:px-6 lg:grid-cols-[1fr_auto] lg:items-center lg:px-8">
-      <div>
-        <Pill>PAIMANA July 2026 · Risk model v0.3</Pill>
-        <h1 id="command-title" className="mt-3 text-3xl font-black leading-tight text-[#052b63] sm:text-4xl">
-          Command Centre
-        </h1>
-        <p className="mt-2 text-base font-bold text-[#075db7] sm:text-lg">Monitor. Analyse. Predict. Enable Action.</p>
-        <span className="mt-2 block text-sm font-semibold text-[#526276]">
-          National infrastructure portfolio intelligence · Updated 21 Aug 2026
+    <PageHero
+      eyebrow="PAIMANA July 2026 · Risk model v0.3"
+      title="Command Centre"
+      titleId="command-title"
+      description="Start here to understand portfolio health, what changed this cycle, and which infrastructure projects need intervention next."
+      tone="navy"
+    >
+      <aside className="grid w-full gap-3 rounded-[8px] border border-[#c9d6e2] bg-white p-3 sm:min-w-[22rem] sm:grid-cols-[40px_1fr_auto] sm:items-center">
+        <span className="grid size-10 place-items-center rounded-[6px] bg-[#fef2f2] text-[#b91c1c]">
+          <ShieldAlert className="size-5" aria-hidden="true" />
         </span>
-      </div>
-      {/* Coverage card explains that current prototype risk scoring covers a subset. */}
-      <aside className="w-full rounded-lg border border-[#075db7]/20 bg-white/[0.85] p-4 shadow-sm lg:w-64">
-        <span className="text-xs font-bold text-[#526276]">Risk Assessment Coverage</span>
-        <strong className="mt-1 block text-2xl font-black text-[#052b63]">42 / 1,775</strong>
-        <small className="text-xs font-semibold text-[#748397]">2.4% current model coverage</small>
+        <span className="min-w-0">
+          <span className="block text-[11px] font-black uppercase text-[#748397]">Immediate queue</span>
+          <strong className="mt-1 block text-sm font-black text-[#0b2545]">7 critical interventions need owner review</strong>
+        </span>
+        <Button as="a" href="/nirvaah/early-warnings" variant="secondary" className="w-full sm:w-fit">
+          Review
+          <ArrowRight className="size-4" aria-hidden="true" />
+        </Button>
       </aside>
-    </section>
+    </PageHero>
   );
 }

@@ -10,7 +10,7 @@ export function LandingHeader() {
   const [isOpen, setIsOpen] = useState(false);
 
   const navLink =
-    "rounded-md px-3 py-2 text-sm font-semibold text-[#263d59] transition hover:bg-[#eef5fb] hover:text-[#052b63]";
+    "rounded-md px-3 py-2 text-sm font-semibold text-[#263d59] transition hover:bg-[#f8fafc] hover:text-[#0b2545]";
 
   return (
     <header className="sticky top-0 z-50 border-b border-[#d5e1ec]/90 bg-white/95 backdrop-blur-xl">
@@ -26,7 +26,7 @@ export function LandingHeader() {
           <PlatformMark />
 
           <span className="grid min-w-0 leading-tight">
-            <strong className="text-sm font-extrabold text-[#052b63] sm:text-base">
+            <strong className="text-sm font-extrabold text-[#0b2545] sm:text-base">
               NIRVAAH
             </strong>
 
@@ -47,7 +47,7 @@ export function LandingHeader() {
               key={item.href}
               href={`/${item.href}`}
               className={`${navLink} ${
-                index === 0 ? "bg-[#eef5fb] text-[#052b63]" : ""
+                index === 0 ? "bg-[#f8fafc] text-[#0b2545]" : ""
               }`}
             >
               {item.label}
@@ -72,7 +72,7 @@ export function LandingHeader() {
 
         {/* ==================== MOBILE MENU BUTTON ==================== */}
         <button
-          className="ml-auto inline-grid size-11 place-items-center rounded-lg border border-[#d5e1ec] bg-white text-[#052b63] xl:hidden"
+          className="ml-auto inline-grid size-11 place-items-center rounded-lg border border-[#d5e1ec] bg-white text-[#0b2545] xl:hidden"
           type="button"
           aria-expanded={isOpen}
           aria-controls="site-navigation-mobile"
@@ -97,7 +97,7 @@ export function LandingHeader() {
                 key={item.href}
                 href={`/${item.href}`}
                 className={`${navLink} ${
-                  index === 0 ? "bg-[#eef5fb] text-[#052b63]" : ""
+                  index === 0 ? "bg-[#f8fafc] text-[#0b2545]" : ""
                 }`}
                 onClick={() => setIsOpen(false)}
               >

@@ -1,8 +1,31 @@
 @import "tailwindcss";
+@import "../../NIRVAAH-AI/styles.css";
 
 @layer base {
   /* Global browser defaults shared by every NIRVAAH page. */
   :root {
+    --nirvaah-navy: #0b2545;
+    --nirvaah-navy-dark: #071a33;
+    --nirvaah-ink: #10233d;
+    --nirvaah-text: #263d59;
+    --nirvaah-muted: #526276;
+    --nirvaah-muted-soft: #748397;
+    --nirvaah-saffron: #d97706;
+    --nirvaah-green: #15803d;
+    --nirvaah-red: #b91c1c;
+    --nirvaah-slate: #475569;
+    --nirvaah-border: #c9d6e2;
+    --nirvaah-border-soft: #dbe4ec;
+    --nirvaah-border-subtle: #e7eff7;
+    --nirvaah-paper: #ffffff;
+    --nirvaah-surface: #fbfcfd;
+    --nirvaah-surface-muted: #f7fafc;
+    --nirvaah-paper-warm: #fff8ed;
+    --nirvaah-mint: #ecfdf3;
+    --nirvaah-page: #f3f6f8;
+    --nirvaah-radius: 8px;
+    --nirvaah-radius-sm: 6px;
+    --nirvaah-shadow: 0 1px 2px rgb(15 23 42 / 0.06);
     color-scheme: light;
     font-family:
       Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -26,8 +49,8 @@
   body {
     min-width: 320px;
     margin: 0;
-    background: #f6f9fc;
-    color: #10233d;
+    background: var(--nirvaah-page);
+    color: var(--nirvaah-ink);
   }
 
   /* Buttons and inline SVG icons inherit app typography and spacing rules. */
@@ -54,7 +77,155 @@
 
   /* Accessible focus ring used across keyboard navigation. */
   :focus-visible {
-    outline: 3px solid rgb(7 93 183 / 32%);
+    outline: 3px solid rgb(217 119 6 / 32%);
     outline-offset: 3px;
+  }
+
+  ::selection {
+    background: rgb(217 119 6 / 20%);
+  }
+}
+
+@layer components {
+  .nirvaah-page {
+    display: grid;
+    width: 100%;
+    max-width: 1680px;
+    min-width: 0;
+    gap: 1rem;
+    margin-inline: auto;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .nirvaah-panel {
+    min-width: 0;
+    overflow: hidden;
+    border: 1px solid var(--nirvaah-border);
+    border-radius: var(--nirvaah-radius);
+    background: var(--nirvaah-paper);
+    box-shadow: var(--nirvaah-shadow);
+  }
+
+  .nirvaah-panel-header {
+    border-bottom: 1px solid var(--nirvaah-border-soft);
+    background: var(--nirvaah-surface);
+    padding: 1rem;
+  }
+
+  .nirvaah-panel-body {
+    padding: 1rem;
+  }
+
+  .nirvaah-kicker {
+    color: var(--nirvaah-muted-soft);
+    font-size: 0.6875rem;
+    font-weight: 900;
+    letter-spacing: 0;
+    line-height: 1rem;
+    text-transform: uppercase;
+  }
+
+  .nirvaah-section-title {
+    color: var(--nirvaah-navy);
+    font-size: 1rem;
+    font-weight: 900;
+    line-height: 1.35;
+  }
+
+  .nirvaah-section-copy {
+    color: var(--nirvaah-muted);
+    font-size: 0.875rem;
+    font-weight: 600;
+    line-height: 1.65;
+  }
+
+  .nirvaah-field {
+    min-height: 2.75rem;
+    width: 100%;
+    border: 1px solid #cfdcea;
+    border-radius: var(--nirvaah-radius-sm);
+    background: var(--nirvaah-paper);
+    color: var(--nirvaah-ink);
+    font-size: 0.875rem;
+    font-weight: 650;
+  }
+
+  .nirvaah-field:focus {
+    border-color: var(--nirvaah-saffron);
+    box-shadow: 0 0 0 4px rgb(217 119 6 / 14%);
+    outline: none;
+  }
+
+  .nirvaah-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    text-align: left;
+  }
+
+  .nirvaah-table thead tr {
+    background: #f7fafc;
+    color: var(--nirvaah-muted);
+    font-size: 0.6875rem;
+    font-weight: 900;
+    text-transform: uppercase;
+  }
+
+  .nirvaah-table th,
+  .nirvaah-table td {
+    border-bottom: 1px solid var(--nirvaah-border-subtle);
+    padding: 0.75rem 1rem;
+    vertical-align: middle;
+  }
+
+  .nirvaah-table tbody tr {
+    color: var(--nirvaah-text);
+    font-size: 0.875rem;
+    transition: background 160ms ease, box-shadow 160ms ease;
+  }
+
+  .nirvaah-table tbody tr:hover {
+    background: #fbfcfd;
+  }
+
+  .nirvaah-table tbody tr.is-selected {
+    background: #fffaf0;
+    box-shadow: inset 4px 0 0 var(--nirvaah-saffron);
+  }
+
+  .nirvaah-tab {
+    display: inline-flex;
+    min-height: 2.5rem;
+    flex-shrink: 0;
+    align-items: center;
+    border-bottom: 2px solid transparent;
+    padding-inline: 0.75rem;
+    color: var(--nirvaah-muted);
+    font-size: 0.875rem;
+    font-weight: 900;
+    transition: color 160ms ease, border-color 160ms ease, background 160ms ease;
+  }
+
+  .nirvaah-tab:hover,
+  .nirvaah-tab[aria-current="page"] {
+    border-color: var(--nirvaah-green);
+    background: #ecfdf3;
+    color: var(--nirvaah-navy);
+  }
+
+  .nirvaah-icon-button {
+    display: grid;
+    width: 2.5rem;
+    height: 2.5rem;
+    place-items: center;
+    border: 1px solid transparent;
+    border-radius: var(--nirvaah-radius-sm);
+    color: var(--nirvaah-navy);
+    transition: background 160ms ease, border-color 160ms ease, color 160ms ease;
+  }
+
+  .nirvaah-icon-button:hover {
+    border-color: var(--nirvaah-border);
+    background: #f8fafc;
   }
 }

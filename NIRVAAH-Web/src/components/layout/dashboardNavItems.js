@@ -9,7 +9,7 @@ import {
   SlidersHorizontal,
 } from "lucide-react";
 
-export const dashboardNavItems = [
+export const primaryNavItems = [
   {
     label: "Command Centre",
     href: "/nirvaah/command-centre",
@@ -21,14 +21,11 @@ export const dashboardNavItems = [
     icon: FileText,
   },
   {
-    label: "Risk Intelligence",
-    href: "/nirvaah/risk-intelligence",
-    icon: Gauge,
-  },
-  {
     label: "Early Warnings",
     href: "/nirvaah/early-warnings",
     icon: BellRing,
+    badge: "3",
+    badgeLabel: "3 urgent warnings",
   },
   {
     label: "Benchmarking",
@@ -36,7 +33,7 @@ export const dashboardNavItems = [
     icon: BarChart3,
   },
   {
-    label: "Reports & Export",
+    label: "Reports & Exports",
     href: "/nirvaah/reports",
     icon: SlidersHorizontal,
   },
@@ -45,9 +42,30 @@ export const dashboardNavItems = [
     href: "/nirvaah/ai-assistant",
     icon: Bot,
   },
+];
+
+export const secondaryNavItems = [
+  {
+    label: "Risk Intelligence",
+    href: "/nirvaah/risk-intelligence",
+    icon: Gauge,
+  },
   {
     label: "Settings",
     href: "/nirvaah/settings",
     icon: Settings,
   },
 ];
+
+export const dashboardNavSections = [
+  {
+    label: "Operate",
+    items: primaryNavItems,
+  },
+  {
+    label: "Admin",
+    items: secondaryNavItems,
+  },
+];
+
+export const dashboardNavItems = [...primaryNavItems, ...secondaryNavItems];

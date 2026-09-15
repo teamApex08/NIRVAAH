@@ -12,7 +12,7 @@ import { OutcomeSection } from "../components/landing/OutcomeSection.jsx";
 
 function LandingPage() {
   return (
-    <div className="min-h-screen overflow-x-hidden bg-[#f6f9fc] text-[#10233d]">
+    <div className="min-h-screen overflow-x-hidden bg-[#f3f6f8] text-[#10233d]">
       <LandingHeader />
       <main id="main">
         <HeroSection />

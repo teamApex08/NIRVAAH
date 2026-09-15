@@ -13,7 +13,7 @@ export function TopBottomProjects() {
   return (
     <Card className="overflow-hidden">
       <CardHeader>
-        <h2 className="text-lg font-black text-[#052b63]">Top and Bottom Performing Projects</h2>
+        <h2 className="text-lg font-black text-[#0b2545]">Top and Bottom Performing Projects</h2>
         <p className="mt-1 text-sm text-[#526276]">Current view sorted by cost escalation.</p>
       </CardHeader>
       <CardBody className="grid gap-4 p-0">
@@ -22,7 +22,7 @@ export function TopBottomProjects() {
             <button
               className={cx(
                 "min-h-9 shrink-0 rounded-md px-3 text-sm font-black transition",
-                index === 0 ? "bg-[#075db7] text-white" : "bg-[#eef5fb] text-[#052b63] hover:bg-[#dcebfb]",
+                index === 0 ? "bg-[#d97706] text-white" : "bg-[#f8fafc] text-[#0b2545] hover:bg-[#fff8ed]",
               )}
               type="button"
               key={tab}
@@ -34,7 +34,7 @@ export function TopBottomProjects() {
         <div className="max-w-full overflow-x-auto" style={{ contain: "layout paint" }}>
           <table className="w-[920px] max-w-none table-fixed border-collapse text-left">
             <thead>
-              <tr className="bg-[#edf6ff] text-xs font-black text-[#052b63]">
+              <tr className="bg-[#f7f2e8] text-xs font-black text-[#0b2545]">
                 {["#", "Project Name", "Ministry", "State", "Cost Escalation", "Revised Cost", "Status", "Action"].map((header) => (
                   <th className="border-b border-[#d5e1ec] px-4 py-3" key={header}>
                     {header}
@@ -44,8 +44,8 @@ export function TopBottomProjects() {
             </thead>
             <tbody>
               {performingProjects.map((project) => (
-                <tr className="text-sm text-[#263d59] transition hover:bg-[#f8fbfe]" key={project.rank}>
-                  <td className="border-b border-[#e7eff7] px-4 py-3 font-black text-[#052b63]">{project.rank}</td>
+                <tr className="text-sm text-[#263d59] transition hover:bg-[#fffdf8]" key={project.rank}>
+                  <td className="border-b border-[#e7eff7] px-4 py-3 font-black text-[#0b2545]">{project.rank}</td>
                   <td className="border-b border-[#e7eff7] px-4 py-3 font-black text-[#10233d]">{project.name}</td>
                   <td className="border-b border-[#e7eff7] px-4 py-3">{project.ministry}</td>
                   <td className="border-b border-[#e7eff7] px-4 py-3">{project.state}</td>

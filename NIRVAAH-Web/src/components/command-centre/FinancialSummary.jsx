@@ -10,19 +10,19 @@ const financials = [
 
 export function FinancialSummary() {
   return (
-    <Card className="xl:col-span-2">
+    <Card>
       <CardHeader>
-        <h2 className="text-lg font-black text-[#052b63]">Portfolio Financial Summary</h2>
+        <h2 className="nirvaah-section-title">Portfolio Financial Summary</h2>
       </CardHeader>
       <CardBody>
-        <div className="grid gap-3 sm:grid-cols-3">
+        <dl className="grid overflow-hidden rounded-[8px] border border-[#e2e8f0] sm:grid-cols-3">
           {financials.map(([label, value]) => (
-            <span className="rounded-lg bg-[#f3f8fd] p-4 text-sm font-bold text-[#526276]" key={label}>
-              {label}
-              <strong className="mt-1 block text-lg font-black text-[#052b63]">{value}</strong>
-            </span>
+            <div className="border-b border-[#e2e8f0] p-4 last:border-b-0 sm:border-b-0 sm:border-r sm:last:border-r-0" key={label}>
+              <dt className="text-xs font-black uppercase text-[#748397]">{label}</dt>
+              <dd className="mt-1 text-lg font-black text-[#0b2545]">{value}</dd>
+            </div>
           ))}
-        </div>
+        </dl>
         <p className="mt-4 text-xs font-semibold text-[#748397]">PAIMANA Flash Report - July 2026 · Model v0.3</p>
       </CardBody>
     </Card>

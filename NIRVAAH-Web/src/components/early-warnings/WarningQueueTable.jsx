@@ -1,5 +1,5 @@
 import React from "react";
-import { ChevronDown, ChevronLeft, ChevronRight, MoreHorizontal } from "lucide-react";
+import { ArrowRight, ChevronLeft, ChevronRight, MoreHorizontal } from "lucide-react";
 import { Button } from "../ui/Button.jsx";
 import { Card, CardBody, CardHeader } from "../ui/Card.jsx";
 import { Pill } from "../ui/Pill.jsx";
@@ -8,21 +8,15 @@ import { warningRows } from "./earlyWarningsData.js";
 import { ConfidencePill, WarningSeverityPill, WarningStatusPill } from "./WarningPills.jsx";
 
 const headers = [
-  "Warning ID",
-  "Project Name",
-  "Ministry",
-  "State",
+  "Warning",
+  "Project",
   "Severity",
-  "Warning Type",
-  "Key Evidence",
-  "First Detected",
-  "Latest Change",
-  "Confidence",
+  "Trigger",
+  "Evidence / Impact",
   "Status",
+  "Detected",
   "Action",
 ];
-
-const columnWidths = ["110px", "170px", "140px", "120px", "105px", "165px", "220px", "120px", "120px", "100px", "115px", "115px", "60px"];
 
 /**
  * Main warning queue.
@@ -35,9 +29,9 @@ export function WarningQueueTable() {
     <Card className="overflow-hidden" id="warning-queue">
       <CardHeader className="flex flex-col gap-3 sm:flex-row sm:items-start">
         <div className="mr-auto">
-          <h2 className="text-lg font-black text-[#052b63]">Warning Queue</h2>
+          <h2 className="nirvaah-section-title">Warning Queue</h2>
           <p className="mt-1 text-sm leading-6 text-[#526276]">
-            Projects requiring review based on detected warning signals. Showing 10 of 76 warnings.
+            Scan severity, trigger, evidence, impact and current workflow state. Showing 10 of 76 warnings.
           </p>
         </div>
         <div className="flex items-center gap-2">
@@ -52,62 +46,63 @@ export function WarningQueueTable() {
       </CardHeader>
       <CardBody className="p-0">
         <div className="max-w-full overflow-x-auto" style={{ contain: "layout paint" }}>
-          <table className="w-[1560px] max-w-none table-fixed border-collapse text-left">
-            <colgroup>
-              {/* Widths keep dense review columns readable inside the scroll area. */}
-              {columnWidths.map((width, index) => (
-                <col key={`${width}-${index}`} style={{ width }} />
-              ))}
-            </colgroup>
+          <table className="nirvaah-table min-w-[1120px]">
             <thead>
-              <tr className="bg-[#edf6ff] text-xs font-black text-[#052b63]">
+              <tr>
                 {headers.map((header) => (
-                  <th className="border-b border-[#d5e1ec] px-4 py-3" key={header}>
+                  <th key={header}>
                     {header}
                   </th>
                 ))}
-                <th className="border-b border-[#d5e1ec] px-4 py-3">
+                <th>
                   <span className="sr-only">More actions</span>
                 </th>
               </tr>
             </thead>
             <tbody>
               {warningRows.map((warning, index) => (
-                // The first row is selected because its full detail appears in the right panel.
                 <tr
                   className={cx(
-                    "text-sm text-[#263d59] transition hover:bg-[#f8fbfe]",
-                    index === 0 && "bg-[#f6fbff] shadow-[inset_4px_0_0_#075db7]",
+                    index === 0 && "is-selected",
                   )}
                   key={warning.id}
                 >
-                  <td className="whitespace-nowrap border-b border-[#e7eff7] px-4 py-3 font-black text-[#075db7]">{warning.id}</td>
-                  <td className="border-b border-[#e7eff7] px-4 py-3">
+                  <td>
+                    <span className="block whitespace-nowrap font-black text-[#0b2545]">{warning.id}</span>
+                    <span className="mt-1 block text-xs font-semibold text-[#748397]">{warning.type}</span>
+                  </td>
+                  <td>
                     <strong className="block font-black text-[#10233d]">{warning.project}</strong>
-                    <span className="mt-1 block text-xs font-bold text-[#748397]">{warning.projectId}</span>
+                    <span className="mt-1 block text-xs font-bold text-[#748397]">
+                      {warning.ministry} · {warning.state}
+                    </span>
                   </td>
-                  <td className="border-b border-[#e7eff7] px-4 py-3 font-semibold">{warning.ministry}</td>
-                  <td className="border-b border-[#e7eff7] px-4 py-3">{warning.state}</td>
-                  <td className="border-b border-[#e7eff7] px-4 py-3">
+                  <td>
                     <WarningSeverityPill severity={warning.severity} />
+                    <span className="mt-2 block">
+                      <ConfidencePill confidence={warning.confidence} />
+                    </span>
                   </td>
-                  <td className="border-b border-[#e7eff7] px-4 py-3">{warning.type}</td>
-                  <td className="border-b border-[#e7eff7] px-4 py-3">{warning.evidence}</td>
-                  <td className="whitespace-nowrap border-b border-[#e7eff7] px-4 py-3">{warning.firstDetected}</td>
-                  <td className="whitespace-nowrap border-b border-[#e7eff7] px-4 py-3">{warning.latestChange}</td>
-                  <td className="border-b border-[#e7eff7] px-4 py-3">
-                    <ConfidencePill confidence={warning.confidence} />
+                  <td>
+                    <span className="font-semibold text-[#263d59]">{warning.evidence}</span>
                   </td>
-                  <td className="border-b border-[#e7eff7] px-4 py-3">
+                  <td>
+                    <span className="block font-semibold leading-6 text-[#263d59]">{warning.potentialImpact}</span>
+                  </td>
+                  <td>
                     <WarningStatusPill status={warning.status} />
                   </td>
-                  <td className="border-b border-[#e7eff7] px-4 py-3">
-                    <Button type="button" className="min-h-9 px-3 py-1.5 text-xs">
+                  <td>
+                    <span className="block whitespace-nowrap font-semibold text-[#263d59]">{warning.firstDetected}</span>
+                    <span className="mt-1 block whitespace-nowrap text-xs font-semibold text-[#748397]">Updated {warning.latestChange}</span>
+                  </td>
+                  <td>
+                    <Button type="button" variant={warning.severity === "Critical" ? "danger" : "quiet"} className="min-h-9 px-3 py-1.5 text-xs">
                       {warning.action}
-                      <ChevronDown className="size-3.5" aria-hidden="true" />
+                      <ArrowRight className="size-3.5" aria-hidden="true" />
                     </Button>
                   </td>
-                  <td className="border-b border-[#e7eff7] px-4 py-3">
+                  <td>
                     <Button type="button" variant="ghost" className="min-h-9 px-2.5" aria-label={`More actions for ${warning.project}`}>
                       <MoreHorizontal className="size-4" aria-hidden="true" />
                     </Button>

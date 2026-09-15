@@ -1,5 +1,4 @@
 import React from "react";
-import { EarlyWarningsAssistant } from "../components/early-warnings/EarlyWarningsAssistant.jsx";
 import { EarlyWarningsHero } from "../components/early-warnings/EarlyWarningsHero.jsx";
 import { SelectedWarningPanel } from "../components/early-warnings/SelectedWarningPanel.jsx";
 import { WarningAnalytics } from "../components/early-warnings/WarningAnalytics.jsx";
@@ -17,18 +16,17 @@ import { WarningSourceStrip } from "../components/early-warnings/WarningSourceSt
  */
 function EarlyWarningsPage() {
   return (
-    <main className="grid min-w-0 gap-4" aria-labelledby="early-warnings-title">
+    <main className="nirvaah-page" aria-labelledby="early-warnings-title">
       <EarlyWarningsHero />
-      <WarningSourceStrip />
       <WarningKpiStrip />
       <WarningFilters />
       <section className="grid min-w-0 gap-4 xl:grid-cols-[minmax(0,1fr)_360px]" aria-label="Warning review workspace">
         <WarningQueueTable />
         <SelectedWarningPanel />
       </section>
+      <WarningSourceStrip />
       <WarningAnalytics />
       <WarningQuickActions />
-      <EarlyWarningsAssistant />
     </main>
   );
 }

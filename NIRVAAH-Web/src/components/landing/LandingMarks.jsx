@@ -1,4 +1,5 @@
 import React from "react";
+import { nirvaahEmblemSrc } from "../shared/brandAssets.js";
 
 /**
  * Minimal emblem-style mark for the ministry lockup.
@@ -19,8 +20,8 @@ export function GovEmblem() {
  */
 export function PlatformMark() {
   return (
-    <span className="grid size-9 shrink-0 place-items-center rounded-lg border border-[#0b8a7a]/25 bg-[#edf8f5]" aria-hidden="true">
-      <span className="size-5 rounded-full border-[5px] border-[#0b8a7a] border-b-[#147b95] border-r-[#075db7]" />
+    <span className="grid size-10 shrink-0 place-items-center overflow-hidden rounded-md border border-[#c9d6e2] bg-white" aria-hidden="true">
+      <img className="size-8 object-contain" src={nirvaahEmblemSrc} alt="" />
     </span>
   );
 }

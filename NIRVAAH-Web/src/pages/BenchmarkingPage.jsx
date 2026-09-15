@@ -17,7 +17,7 @@ import { TopBottomProjects } from "../components/benchmarking/TopBottomProjects.
  */
 function BenchmarkingPage() {
   return (
-    <main className="grid min-w-0 gap-4" aria-labelledby="benchmarking-title">
+    <main className="nirvaah-page" aria-labelledby="benchmarking-title">
       <BenchmarkingHero />
       <BenchmarkingTabs />
       <BenchmarkingFilters />

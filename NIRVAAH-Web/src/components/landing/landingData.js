@@ -148,8 +148,8 @@ export const kpiToneStyles = {
     value: "text-orange-700",
   },
   blue: {
-    box: "border-blue-200 bg-blue-50",
-    icon: "bg-blue-100 text-blue-700",
-    value: "text-blue-700",
+    box: "border-[#c9d6e2] bg-[#f2f5f8]",
+    icon: "bg-white text-[#0b2545]",
+    value: "text-[#0b2545]",
   },
 };

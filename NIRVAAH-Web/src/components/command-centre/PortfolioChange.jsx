@@ -1,27 +1,34 @@
 import { cx } from "../../lib/formatters.js";
-import { Card } from "../ui/Card.jsx";
+import { Card, CardBody, CardHeader } from "../ui/Card.jsx";
 import { portfolioChanges } from "./commandCentreData.js";
 
 // Color choices for positive, warning, and neutral movement cards.
 const toneStyles = {
-  red: "bg-red-50 text-red-700",
-  green: "bg-emerald-50 text-emerald-700",
-  orange: "bg-orange-50 text-orange-700",
-  blue: "bg-blue-50 text-blue-700",
+  red: "text-[#b91c1c]",
+  green: "text-[#166534]",
+  orange: "text-[#b45309]",
+  blue: "text-[#0b2545]",
 };
 
 
 export function PortfolioChange() {
   return (
-    <Card className="grid gap-3 p-4 xl:col-span-3 xl:grid-cols-[220px_repeat(4,minmax(0,1fr))] xl:items-center">
-      <h2 className="text-lg font-black text-[#052b63]">Portfolio Change · July 2026</h2>
-      {portfolioChanges.map((item) => (
-        <article className={cx("rounded-lg p-3", toneStyles[item.tone])} key={item.label}>
-          <span className="block text-xs font-bold opacity-80">{item.label}</span>
-          <strong className="mt-1 block text-xl font-black">{item.value}</strong>
-          <small className="mt-1 block text-xs font-semibold opacity-80">{item.text}</small>
-        </article>
-      ))}
+    <Card>
+      <CardHeader>
+        <h2 className="nirvaah-section-title">What changed since June</h2>
+        <p className="mt-1 text-sm leading-6 text-[#526276]">Movement that should shape this month's review agenda.</p>
+      </CardHeader>
+      <CardBody>
+        <dl className="grid gap-0 overflow-hidden rounded-[8px] border border-[#e2e8f0] sm:grid-cols-2 xl:grid-cols-4">
+          {portfolioChanges.map((item) => (
+            <div className="border-b border-[#e2e8f0] p-3 last:border-b-0 sm:odd:border-r xl:border-b-0 xl:border-r xl:last:border-r-0" key={item.label}>
+              <dt className="text-xs font-black uppercase text-[#748397]">{item.label}</dt>
+              <dd className={cx("mt-1 text-xl font-black", toneStyles[item.tone])}>{item.value}</dd>
+              <dd className="mt-1 text-xs font-semibold leading-5 text-[#526276]">{item.text}</dd>
+            </div>
+          ))}
+        </dl>
+      </CardBody>
     </Card>
   );
 }

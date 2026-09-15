@@ -16,16 +16,16 @@ export function SelectedWarningPanel() {
     <Card as="aside" className="h-fit" aria-label="Selected warning details">
       <CardHeader className="flex items-start justify-between gap-3">
         <div>
-          <h2 className="text-lg font-black text-[#052b63]">Selected Warning Details</h2>
+          <h2 className="text-lg font-black text-[#0b2545]">Selected Warning Details</h2>
           <p className="mt-1 text-sm text-[#526276]">{selectedWarning.id}</p>
         </div>
-        <Pin className="size-4 text-[#075db7]" aria-hidden="true" />
+        <Pin className="size-4 text-[#0b2545]" aria-hidden="true" />
       </CardHeader>
       <CardBody className="grid gap-5">
         <div>
           <div className="flex items-start justify-between gap-3">
             <div>
-              <h3 className="text-xl font-black leading-7 text-[#052b63]">{selectedWarning.project}</h3>
+              <h3 className="text-xl font-black leading-7 text-[#0b2545]">{selectedWarning.project}</h3>
               <p className="mt-1 text-sm font-bold text-[#748397]">Project ID: {selectedWarning.projectId}</p>
             </div>
             <WarningSeverityPill severity={selectedWarning.severity} />
@@ -36,7 +36,7 @@ export function SelectedWarningPanel() {
               ["Sector", "Railways"],
               ["State", selectedWarning.state],
             ].map(([label, value]) => (
-              <div className="rounded-lg bg-[#f6f9fc] p-3" key={label}>
+              <div className="rounded-md border border-[#e2e8f0] bg-[#f8fafc] p-3" key={label}>
                 <dt className="text-xs font-black uppercase tracking-wide text-[#748397]">{label}</dt>
                 <dd className="mt-1 text-sm font-black text-[#10233d]">{value}</dd>
               </div>
@@ -56,20 +56,20 @@ export function SelectedWarningPanel() {
         </div>
 
         <div>
-          <h4 className="text-sm font-black text-[#052b63]">Evidence from Data</h4>
+          <h4 className="text-sm font-black text-[#0b2545]">Evidence from Data</h4>
           <ul className="mt-2 grid gap-2">
             {selectedWarning.evidenceFromData.map((item) => (
               <li className="grid grid-cols-[20px_1fr] gap-2 text-sm font-semibold leading-6 text-[#263d59]" key={item}>
-                <ShieldAlert className="mt-1 size-4 text-[#075db7]" aria-hidden="true" />
+                <ShieldAlert className="mt-1 size-4 text-[#0b2545]" aria-hidden="true" />
                 <span>{item}</span>
               </li>
             ))}
           </ul>
         </div>
 
-        <div className="rounded-lg bg-[#eef6ff] p-3">
-          <p className="text-xs font-black uppercase tracking-wide text-[#075db7]">Suggested Next Step</p>
-          <p className="mt-1 text-sm font-bold leading-6 text-[#052b63]">{selectedWarning.suggestedStep}</p>
+        <div className="rounded-lg bg-[#f8fafc] p-3">
+          <p className="text-xs font-black uppercase tracking-wide text-[#0b2545]">Suggested Next Step</p>
+          <p className="mt-1 text-sm font-bold leading-6 text-[#0b2545]">{selectedWarning.suggestedStep}</p>
         </div>
 
         <div className="grid gap-2 sm:grid-cols-2 xl:grid-cols-1">
@@ -88,11 +88,11 @@ export function SelectedWarningPanel() {
         </div>
 
         <div>
-          <h4 className="text-sm font-black text-[#052b63]">Warning History</h4>
+          <h4 className="text-sm font-black text-[#0b2545]">Warning History</h4>
           <ol className="mt-3 grid gap-3">
             {selectedWarning.history.map((event) => (
               <li className="grid grid-cols-[14px_1fr] gap-3" key={`${event.label}-${event.date}`}>
-                <span className="mt-1.5 size-3 rounded-full bg-[#075db7] ring-4 ring-[#e9f3fd]" />
+                <span className="mt-1.5 size-3 rounded-full bg-[#0b2545] ring-4 ring-[#f2f5f8]" />
                 <span>
                   <strong className="block text-sm font-black text-[#10233d]">{event.label}</strong>
                   <span className="block text-xs font-bold text-[#748397]">{event.date}</span>

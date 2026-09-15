@@ -78,8 +78,8 @@ export const warningKpis = [
   {
     icon: CheckCircle2,
     value: "44",
-    label: "Resolved / Monitoring",
-    note: "Under follow-up watch",
+    label: "Resolved / Follow-up",
+    note: "Closed or under follow-up watch",
     tone: "green",
   },
 ];
@@ -88,11 +88,10 @@ export const warningKpis = [
 export const warningFilters = [
   { label: "Ministry", options: ["All Ministries", "Railways", "Jal Shakti", "Housing & Urban Affairs", "Power"] },
   { label: "Sector", options: ["All Sectors", "Transport", "Water Resources", "Energy", "Urban Development"] },
-  { label: "State", options: ["All States", "Uttar Pradesh", "Bihar", "Maharashtra", "Tamil Nadu", "Karnataka"] },
+  { label: "Project", options: ["All Projects", "Eastern Freight Corridor", "River Basin Project", "Metro Rail Phase II"] },
   { label: "Warning Severity", options: ["All Severities", "Critical", "High", "Moderate", "Low"] },
   { label: "Warning Type", options: ["All Types", "Progress Stagnation", "Cost Escalation", "Schedule Slippage"] },
-  { label: "Status", options: ["All Statuses", "New", "In Review", "Acknowledged", "Monitoring"] },
-  { label: "Confidence", options: ["All", "High", "Medium", "Low"] },
+  { label: "Status", options: ["All Statuses", "New", "Acknowledged", "Under Review", "Action Required", "Resolved"] },
 ];
 
 // Warning rows shown in the queue. The first warning is selected in the detail panel.
@@ -108,6 +107,7 @@ export const warningRows = [
     evidence: "Physical progress stagnant for 2 months",
     firstDetected: "12 May 2026",
     latestChange: "21 Jul 2026",
+    potentialImpact: "Recovery plan likely needed before next reporting cycle.",
     confidence: "High",
     status: "New",
     action: "Review",
@@ -123,8 +123,9 @@ export const warningRows = [
     evidence: "Cost 32% above sector median",
     firstDetected: "18 Apr 2026",
     latestChange: "20 Jul 2026",
+    potentialImpact: "Final cost may breach the sector tolerance band.",
     confidence: "Medium",
-    status: "In Review",
+    status: "Under Review",
     action: "Investigate",
   },
   {
@@ -138,6 +139,7 @@ export const warningRows = [
     evidence: "Revised completion date plus 4 months",
     firstDetected: "02 Mar 2026",
     latestChange: "19 Jul 2026",
+    potentialImpact: "Planned commissioning window may slip further.",
     confidence: "High",
     status: "New",
     action: "Review",
@@ -153,6 +155,7 @@ export const warningRows = [
     evidence: "Slow progress with high time risk",
     firstDetected: "11 Apr 2026",
     latestChange: "18 Jul 2026",
+    potentialImpact: "Time risk remains elevated until progress evidence improves.",
     confidence: "Medium",
     status: "Acknowledged",
     action: "Monitor",
@@ -168,8 +171,9 @@ export const warningRows = [
     evidence: "Completion date revised twice",
     firstDetected: "20 Mar 2026",
     latestChange: "18 Jul 2026",
+    potentialImpact: "Repeated date changes may affect downstream dependencies.",
     confidence: "Medium",
-    status: "In Review",
+    status: "Under Review",
     action: "Investigate",
   },
   {
@@ -183,8 +187,9 @@ export const warningRows = [
     evidence: "Progress below planned trajectory",
     firstDetected: "14 Apr 2026",
     latestChange: "17 Jul 2026",
+    potentialImpact: "Progress gap could convert into schedule slippage.",
     confidence: "Medium",
-    status: "New",
+    status: "Action Required",
     action: "Review",
   },
   {
@@ -198,8 +203,9 @@ export const warningRows = [
     evidence: "Multiple cost revisions",
     firstDetected: "10 Feb 2026",
     latestChange: "16 Jul 2026",
+    potentialImpact: "Cost revision pattern may require ministry escalation.",
     confidence: "High",
-    status: "In Review",
+    status: "Under Review",
     action: "Investigate",
   },
   {
@@ -213,8 +219,9 @@ export const warningRows = [
     evidence: "Physical progress stagnant for 2 months",
     firstDetected: "28 Apr 2026",
     latestChange: "15 Jul 2026",
+    potentialImpact: "Moderate risk remains under follow-up watch.",
     confidence: "Medium",
-    status: "Monitoring",
+    status: "Resolved",
     action: "View Project",
   },
   {
@@ -228,8 +235,9 @@ export const warningRows = [
     evidence: "Expenditure slower than planned",
     firstDetected: "12 Jun 2026",
     latestChange: "14 Jul 2026",
+    potentialImpact: "Low-confidence signal should be monitored for corroboration.",
     confidence: "Low",
-    status: "Monitoring",
+    status: "Resolved",
     action: "View Project",
   },
   {
@@ -243,6 +251,7 @@ export const warningRows = [
     evidence: "Completion date revised for third time",
     firstDetected: "05 Feb 2026",
     latestChange: "12 Jul 2026",
+    potentialImpact: "Repeated slippage may require revised contractual review.",
     confidence: "Medium",
     status: "New",
     action: "Review",
@@ -280,9 +289,9 @@ export const warningTypeBreakdown = [
   { label: "Progress Stagnation", count: 18, width: 100, color: "bg-red-500" },
   { label: "Physical-Financial Gap", count: 14, width: 78, color: "bg-orange-400" },
   { label: "Cost Escalation", count: 11, width: 61, color: "bg-amber-400" },
-  { label: "Schedule Slippage", count: 10, width: 56, color: "bg-blue-400" },
+  { label: "Schedule Slippage", count: 10, width: 56, color: "bg-[#7898b6]" },
   { label: "Completion Date Revision", count: 8, width: 44, color: "bg-sky-400" },
-  { label: "Repeated Cost Revision", count: 7, width: 39, color: "bg-blue-300" },
+  { label: "Repeated Cost Revision", count: 7, width: 39, color: "bg-[#9bb2c9]" },
 ];
 
 export const monthlyWarningTrend = [
@@ -306,11 +315,4 @@ export const quickActions = [
   { icon: BellRing, title: "Export Warning Report", description: "Download analysed warnings", tone: "red" },
   { icon: LineChart, title: "Create Monthly Risk Brief", description: "Generate summary for review", tone: "purple" },
   { icon: GitCompareArrows, title: "Compare Warning Trends", description: "Ministry, sector or state view", tone: "green" },
-];
-
-export const warningAssistantPrompts = [
-  "Which warnings are new this cycle?",
-  "Show all critical warnings in Railways",
-  "Why did this project move to high severity?",
-  "Compare warning trends across ministries",
 ];

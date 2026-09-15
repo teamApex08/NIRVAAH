@@ -14,10 +14,11 @@ export function BenchmarkingTabs() {
       {benchmarkTabs.map((tab, index) => (
         <a
           className={cx(
-            "inline-flex min-h-10 shrink-0 items-center border-b-2 border-transparent px-3 text-sm font-black text-[#526276]",
-            index === 0 && "border-[#075db7] text-[#075db7]",
+            "nirvaah-tab",
+            index === 0 && "border-[#d97706] bg-[#fff8ed] text-[#0b2545]",
           )}
           href="#sector-performance"
+          aria-current={index === 0 ? "page" : undefined}
           key={tab}
         >
           {tab}

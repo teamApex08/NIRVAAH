@@ -10,9 +10,10 @@ const severityStyles = {
 
 const statusStyles = {
   New: "bg-red-50 text-red-700 ring-red-600/15",
-  "In Review": "bg-blue-50 text-blue-700 ring-blue-600/15",
+  "Under Review": "bg-[#f2f5f8] text-[#0b2545] ring-[#0b2545]/15",
+  "Action Required": "bg-[#fff7ed] text-[#b45309] ring-[#d97706]/20",
   Acknowledged: "bg-sky-50 text-sky-700 ring-sky-600/15",
-  Monitoring: "bg-emerald-50 text-emerald-700 ring-emerald-600/15",
+  Resolved: "bg-emerald-50 text-emerald-700 ring-emerald-600/15",
 };
 
 const confidenceStyles = {
